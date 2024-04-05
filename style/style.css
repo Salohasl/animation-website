@@ -2,7 +2,11 @@
 * {
   margin: 0%;
   box-sizing: border-box;
-  font-family: "Space Ranger", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
 }
 
 ::-webkit-scrollbar {
@@ -21,35 +25,68 @@ html {
 
 body {
   overflow-x: hidden; /* Hide horizontal scrollbar */
-  height: 100%;
+}
+
+.body-no-scroll {
+  overflow: hidden;
 }
 
 .pruning {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: -100;
   opacity: 0;
 }
 .pruning.active {
   opacity: 1;
-}
-
-.pruning-reverse {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
   z-index: -100;
-  opacity: 0;
 }
-.pruning-reverse.active-reverse {
+
+.pruning2 {
+  opacity: 0;
+  transition: 0.5s;
+}
+.pruning2.active {
+  transition: 0.5s;
   opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -100;
+}
+
+.pruning-reverse {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -100;
+}
+
+.pruningTwo-reverse {
+  opacity: 0;
+  transition: 0.5s;
+}
+.pruningTwo-reverse.activeReverse {
+  transition: 0.5s;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -100;
+  transform-origin: bottom;
 }
 
 .header {
@@ -58,6 +95,8 @@ body {
 }
 .header img {
   margin: 20px;
+  position: fixed;
+  top: 0;
 }
 .header.removeBlock {
   opacity: 0;
@@ -116,7 +155,7 @@ nav {
 }
 
 .bg-video1 {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -176,6 +215,7 @@ nav.popUp ul {
   justify-content: center;
   margin-left: 15px;
   line-height: 50px;
+  margin-top: 150px;
 }
 nav.popUp li {
   list-style-type: none;
@@ -184,6 +224,7 @@ nav.popUp a {
   text-decoration: none;
   color: white;
   font-size: 35px;
+  font-family: "Space Ranger", sans-serif;
 }
 
 @-webkit-keyframes fadeInDown { /* Сама анимация */
@@ -218,18 +259,24 @@ nav {
 
 .header-text {
   color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  margin-top: 0px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .header-text h1 {
   font-size: 140px;
+  font-family: "Space Ranger", sans-serif;
 }
 .header-text h2 {
   margin-top: -15px;
   font-size: 80px;
+  font-family: "Space Ranger", sans-serif;
 }
 
 .scroll {
@@ -319,6 +366,9 @@ nav {
     transform: scale(1.5);
   }
 }
+main {
+  height: 100vh;
+}
 main .block-two {
   opacity: 0;
 }
@@ -327,7 +377,7 @@ main .block-two.active {
   transition: 0.5s;
 }
 main .block-two.active .bg-video2 {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -338,19 +388,21 @@ main .block-two.active .bg-video2 {
   -webkit-animation: approximation2 40s linear infinite;
           animation: approximation2 40s linear infinite;
   transform: scale(1.13);
+  transform-origin: bottom;
 }
 main .block-two .block-two__text {
   position: absolute;
-  top: 200px;
+  top: 100px;
   left: 150px;
-  border-radius: 20px;
   padding: 30px;
-  background: linear-gradient(265.41deg, #646464 0%, rgba(123, 123, 123, 0) 100%, #000000 20%);
-  color: white;
+  border-radius: 20px;
+  background-color: rgba(52, 49, 47, 0.4);
+  border: 0.5px solid #505050;
   font-family: "Space Ranger", sans-serif;
   line-height: 20px;
 }
 main .block-two .block-two__text p {
+  color: white;
   width: 420px;
   font-family: "Space Ranger", sans-serif;
 }
@@ -375,6 +427,67 @@ main .block-two .scroll-line span:nth-of-type(1) {
   left: 0;
 }
 main .block-two .scroll-line span:nth-of-type(2) {
+  transform: rotate(-45deg);
+  right: -10px;
+}
+main .block-three {
+  opacity: 0;
+  transition: 0.5s;
+}
+main .block-three.active {
+  opacity: 1;
+  transition: 0.5s;
+  position: fixed;
+  z-index: -100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(/img/3_robots.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100vh;
+}
+main .block-three .block-two__text {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(52, 49, 47, 0.4);
+  border: 0.5px solid #505050;
+  font-family: "Space Ranger", sans-serif;
+  line-height: 20px;
+}
+main .block-three .block-two__text p {
+  color: white;
+  opacity: 1;
+  width: 420px;
+  font-family: "Space Ranger", sans-serif;
+}
+main .block-three .scroll-line {
+  width: 40px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  -webkit-animation: line 1.5s linear infinite;
+          animation: line 1.5s linear infinite;
+}
+main .block-three .scroll-line span {
+  width: 30px;
+  height: 3px;
+  background: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+main .block-three .scroll-line span:nth-of-type(1) {
+  transform: rotate(45deg);
+  left: 0;
+}
+main .block-three .scroll-line span:nth-of-type(2) {
   transform: rotate(-45deg);
   right: -10px;
 }/*# sourceMappingURL=style.css.map */

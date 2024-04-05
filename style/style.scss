@@ -2,7 +2,12 @@
 *{
     margin: 0%;
     box-sizing: border-box;
-    font-family: 'Space Ranger', sans-serif;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
 }
 ::-webkit-scrollbar{
     background: black;
@@ -17,41 +22,71 @@ html {
   }
 body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
-    height: 100%;
 }
-
+.body-no-scroll {
+    overflow: hidden;
+}
 .pruning{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: -100;
     opacity: 0;
     &.active{
         opacity: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -100;
+    }
+}
+.pruning2{
+    opacity: 0;
+    transition: .5s;
+    &.active{
+        transition: .5s;
+        opacity: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -100;
     }
 }
 .pruning-reverse{
-    position: absolute;
+    opacity: 1;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
     z-index: -100;
+}
+.pruningTwo-reverse{
     opacity: 0;
-    &.active-reverse{
+    transition: .5s;
+    &.activeReverse{
+        transition: .5s;
         opacity: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -100;
+        transform-origin: bottom;
     }
 }
-
 .header{
     opacity: 1;
     transition: .4s;
     img{
         margin: 20px;
+        position: fixed;
+        top: 0;
     }
     &.removeBlock{
         opacity: 0;
@@ -116,7 +151,7 @@ body {
 
 
 .bg-video1{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -160,6 +195,7 @@ nav.popUp{
             justify-content: center;
             margin-left: 15px;
             line-height: 50px;
+            margin-top: 150px;
         }
         li{
             list-style-type: none;
@@ -168,6 +204,7 @@ nav.popUp{
             text-decoration: none;
             color: white;
             font-size: 35px;
+            font-family: 'Space Ranger', sans-serif;
         }
   } 
   
@@ -193,17 +230,23 @@ nav{
 
 .header-text{
     color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    margin-top: 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     h1{
         font-size: 140px;
+        font-family: 'Space Ranger', sans-serif;
     }
     h2{
         margin-top: -15px;
         font-size: 80px;
+        font-family: 'Space Ranger', sans-serif;
     }
 }
 
@@ -274,15 +317,14 @@ nav{
     }
 }
 main{
-
+    height: 100vh;
     .block-two{
         opacity: 0;
-
         &.active{
             opacity: 1;
             transition: .5s;
             .bg-video2{
-                position: absolute;
+                position: fixed;
                 top: 0;
                 right: 0;
                 left: 0;
@@ -292,20 +334,22 @@ main{
                 z-index: -100;
                 animation: approximation2 40s linear infinite;
                 transform: scale(1.13);
+                transform-origin: bottom;
             }
         }
         
         .block-two__text{
             position: absolute;
-            top: 200px;
+            top: 100px;
             left: 150px;
-            border-radius: 20px;
             padding: 30px;
-            background: linear-gradient(265.41deg, #646464 0%, rgba(123, 123, 123, 0) 100%, #000000 20%);
-            color: white;
+            border-radius: 20px;
+            background-color:rgba(52, 49, 47, 0.4);
+            border: 0.5px solid  #505050;
             font-family: 'Space Ranger', sans-serif;
             line-height: 20px;
             p{
+                color: white;
                 width: 420px;
                 font-family: 'Space Ranger', sans-serif;
             }
@@ -335,4 +379,66 @@ main{
         }
     }
     
+ 
+    .block-three{
+        opacity: 0;
+        transition: .5s;
+        &.active{
+            opacity: 1;
+            transition: .5s;
+            position: fixed;
+            z-index: -100;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: url(/img/3_robots.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .block-two__text{
+            position: absolute;
+            top: 100px;
+            left: 150px;
+            padding: 30px;
+            border-radius: 20px;
+            background-color:rgba(52, 49, 47, 0.4);
+            border: 0.5px solid  #505050;
+            font-family: 'Space Ranger', sans-serif;
+            line-height: 20px;
+            p{
+                color: white;
+                opacity: 1;
+                width: 420px;
+                font-family: 'Space Ranger', sans-serif;
+            }
+        }
+        .scroll-line{
+            width: 40px;
+            height: 30px;
+            position: relative;
+            cursor: pointer;
+            animation: line 1.5s linear infinite;
+            span{
+                width: 30px;
+                height: 3px;
+                background: white;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                &:nth-of-type(1){
+                    transform: rotate(45deg);
+                    left: 0;
+                }
+                &:nth-of-type(2){
+                    transform: rotate(-45deg);
+                    right: -10px;
+                }
+            }
+        }
+    }
 }
