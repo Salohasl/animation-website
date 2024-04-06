@@ -25,10 +25,48 @@ html {
 
 body {
   overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-color: #201E1D;
 }
 
 .body-no-scroll {
   overflow: hidden;
+}
+
+#eng {
+  opacity: 0;
+}
+#eng.showEng {
+  opacity: 1;
+  z-index: 50;
+}
+
+#rus {
+  opacity: 1;
+  z-index: 50;
+}
+#rus.showRus {
+  opacity: 0;
+}
+
+.language {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  right: 0;
+  width: 50px;
+  padding: 5px;
+  font-size: 15px;
+  background-color: #201E1D;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.language:hover {
+  background-color: #5A5856;
 }
 
 .pruning {
@@ -47,10 +85,8 @@ body {
 
 .pruning2 {
   opacity: 0;
-  transition: 0.5s;
 }
 .pruning2.active {
-  transition: 0.5s;
   opacity: 1;
   position: fixed;
   top: 0;
@@ -58,26 +94,37 @@ body {
   right: 0;
   bottom: 0;
   width: 100%;
+  height: 100vh;
   z-index: -100;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.pruning-reverse {
-  opacity: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: -100;
-}
-
-.pruningTwo-reverse {
+.pruning3 {
   opacity: 0;
-  transition: 0.5s;
 }
-.pruningTwo-reverse.activeReverse {
-  transition: 0.5s;
+.pruning3.active {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.pruningOne-reverse {
+  opacity: 0;
+}
+.pruningOne-reverse.activeOneReverse {
   opacity: 1;
   position: fixed;
   top: 0;
@@ -87,6 +134,44 @@ body {
   width: 100%;
   z-index: -100;
   transform-origin: bottom;
+}
+
+.pruningTwo-reverse {
+  opacity: 0;
+}
+.pruningTwo-reverse.activeReverse {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -100;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.pruningThree-reverse {
+  opacity: 0;
+}
+.pruningThree-reverse.activeThreeReverse {
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -100;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .header {
@@ -101,6 +186,28 @@ body {
 .header.removeBlock {
   opacity: 0;
   transition: 0.4s;
+}
+.header .header-text {
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.header .header-text h1 {
+  font-size: 140px;
+  font-family: "Space Ranger", sans-serif;
+}
+.header .header-text h2 {
+  margin-top: -15px;
+  font-size: 80px;
+  font-family: "Space Ranger", sans-serif;
 }
 
 .menuBtn.active span:nth-of-type(1) {
@@ -119,6 +226,7 @@ body {
 
 .menuBtn {
   cursor: pointer;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,6 +315,8 @@ nav.popUp {
           animation-fill-mode: both; /* Поведение анимации */
   -webkit-animation-name: fadeInDown;
           animation-name: fadeInDown; /* Имя анимации */
+  z-index: 100;
+  padding-top: 20px;
 }
 nav.popUp ul {
   display: flex;
@@ -215,16 +325,22 @@ nav.popUp ul {
   justify-content: center;
   margin-left: 15px;
   line-height: 50px;
-  margin-top: 150px;
 }
 nav.popUp li {
   list-style-type: none;
+  font-family: "Space Ranger", sans-serif;
 }
 nav.popUp a {
   text-decoration: none;
   color: white;
   font-size: 35px;
-  font-family: "Space Ranger", sans-serif;
+}
+nav.popUp .eng {
+  position: absolute;
+  margin-top: 50px;
+}
+nav.popUp .eng a {
+  font-size: 25px;
 }
 
 @-webkit-keyframes fadeInDown { /* Сама анимация */
@@ -257,28 +373,6 @@ nav {
      object-fit: cover;
 }
 
-.header-text {
-  color: white;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.header-text h1 {
-  font-size: 140px;
-  font-family: "Space Ranger", sans-serif;
-}
-.header-text h2 {
-  margin-top: -15px;
-  font-size: 80px;
-  font-family: "Space Ranger", sans-serif;
-}
-
 .scroll {
   color: rgb(242, 242, 242);
   display: flex;
@@ -286,6 +380,7 @@ nav {
   align-items: center;
   justify-content: center;
   position: fixed;
+  z-index: 100;
   bottom: 0;
   left: 0;
   right: 0;
@@ -371,10 +466,11 @@ main {
 }
 main .block-two {
   opacity: 0;
+  transition: 0.4s;
 }
 main .block-two.active {
   opacity: 1;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 main .block-two.active .bg-video2 {
   position: fixed;
@@ -390,55 +486,29 @@ main .block-two.active .bg-video2 {
   transform: scale(1.13);
   transform-origin: bottom;
 }
-main .block-two .block-two__text {
-  position: absolute;
+main .block-two.active .block-two__text {
+  position: fixed;
   top: 100px;
   left: 150px;
   padding: 30px;
   border-radius: 20px;
-  background-color: rgba(52, 49, 47, 0.4);
+  background-color: rgba(52, 49, 47, 0.7);
   border: 0.5px solid #505050;
-  font-family: "Space Ranger", sans-serif;
   line-height: 20px;
 }
-main .block-two .block-two__text p {
+main .block-two.active .block-two__text p {
   color: white;
   width: 420px;
-  font-family: "Space Ranger", sans-serif;
-}
-main .block-two .scroll-line {
-  width: 40px;
-  height: 30px;
-  position: relative;
-  cursor: pointer;
-  -webkit-animation: line 1.5s linear infinite;
-          animation: line 1.5s linear infinite;
-}
-main .block-two .scroll-line span {
-  width: 30px;
-  height: 3px;
-  background: white;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-}
-main .block-two .scroll-line span:nth-of-type(1) {
-  transform: rotate(45deg);
-  left: 0;
-}
-main .block-two .scroll-line span:nth-of-type(2) {
-  transform: rotate(-45deg);
-  right: -10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
 }
 main .block-three {
   opacity: 0;
-  transition: 0.5s;
 }
 main .block-three.active {
   opacity: 1;
-  transition: 0.5s;
   position: fixed;
-  z-index: -100;
+  z-index: 20;
   top: 0;
   bottom: 0;
   left: 0;
@@ -446,48 +516,195 @@ main .block-three.active {
   background-image: url(/img/3_robots.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   width: 100%;
   height: 100vh;
 }
-main .block-three .block-two__text {
-  position: absolute;
+main .block-three.active .block-two__text {
+  position: fixed;
+  top: 100px;
+  left: 150px;
+  padding: 30px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  background-color: rgba(52, 49, 47, 0.7);
+  border: 0.5px solid #505050;
+  line-height: 20px;
+}
+main .block-three.active .block-two__text p {
+  color: white;
+  opacity: 1;
+  width: 420px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+main .block-three.active .block-two__button {
+  position: fixed;
+  top: 290px;
+  left: 150px;
+  font-family: "Space Ranger", sans-serif;
+  line-height: 20px;
+}
+main .block-three.active .block-two__button button {
+  font-family: "Space Ranger", sans-serif;
+  width: 240px;
+  padding: 15px;
+  background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
+  border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+main .block-three.active .block-two__button button:hover {
+  box-shadow: inset 1px 1px 5px black;
+}
+main .block-four {
+  opacity: 0;
+}
+main .block-four.active {
+  opacity: 1;
+}
+main .block-four.active .bg-video3 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  /* Определяем, что все другие элементы на странице будут поверх видео */
+  z-index: -100;
+  -webkit-animation: approximation 130s linear infinite;
+          animation: approximation 130s linear infinite;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .block-four.active .block-two__text {
+  position: fixed;
   top: 100px;
   left: 150px;
   padding: 30px;
   border-radius: 20px;
-  background-color: rgba(52, 49, 47, 0.4);
+  background-color: rgba(52, 49, 47, 0.7);
   border: 0.5px solid #505050;
-  font-family: "Space Ranger", sans-serif;
   line-height: 20px;
 }
-main .block-three .block-two__text p {
+main .block-four.active .block-two__text p {
   color: white;
-  opacity: 1;
-  width: 420px;
+  width: 300px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+main .block-four.active .block-two__button {
+  position: fixed;
+  top: 250px;
+  left: 150px;
   font-family: "Space Ranger", sans-serif;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-main .block-three .scroll-line {
-  width: 40px;
-  height: 30px;
-  position: relative;
+main .block-four.active .block-two__button button {
+  font-family: "Space Ranger", sans-serif;
+  width: 270px;
+  padding: 15px;
+  background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
+  border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
+  border-radius: 15px;
+  font-size: 18px;
   cursor: pointer;
-  -webkit-animation: line 1.5s linear infinite;
-          animation: line 1.5s linear infinite;
 }
-main .block-three .scroll-line span {
-  width: 30px;
-  height: 3px;
-  background: white;
-  position: absolute;
+main .block-four.active .block-two__button button:hover {
+  box-shadow: inset 1px 1px 5px black;
+}
+
+@-webkit-keyframes showFooter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0%, 100%, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes showFooter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0%, 100%, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+footer {
+  opacity: 0;
+  transition: 0.3s;
+}
+footer.footerActive {
+  transition: 0.3s;
+  opacity: 1;
+  background-image: url(/img/1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  z-index: -100;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
   top: 0;
   bottom: 0;
-}
-main .block-three .scroll-line span:nth-of-type(1) {
-  transform: rotate(45deg);
   left: 0;
+  right: 0;
+  z-index: 50;
+  -webkit-animation: showFooter 0.3s linear;
+          animation: showFooter 0.3s linear;
 }
-main .block-three .scroll-line span:nth-of-type(2) {
-  transform: rotate(-45deg);
-  right: -10px;
+footer.footerActive .policy {
+  margin-left: 90px;
+  width: 100px;
+}
+footer.footerActive .footer-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 90px;
+  color: #F2F2F2;
+  gap: 30px;
+  line-height: 30px;
+}
+footer.footerActive a {
+  text-decoration: none;
+  color: #F2F2F2;
+  font-size: 20px;
+  font-weight: 200;
+  font-family: "Inter", sans-serif;
+}
+footer.footerActive h2 {
+  font-size: 20px;
+  margin-top: 90px;
+  font-family: "Space Ranger", sans-serif;
+}
+footer.footerActive .bott {
+  position: absolute;
+  color: #F2F2F2;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+footer.footerActive .footer-other {
+  margin-top: 95px;
+}
+footer.footerActive .eng {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }/*# sourceMappingURL=style.css.map */
