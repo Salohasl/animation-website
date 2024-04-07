@@ -58,7 +58,7 @@ function scrollElement(){
               pruning2.classList.remove('active');
               pruning2.removeAttribute('loop');
               document.body.classList.remove('body-no-scroll');
-            }, 400); 
+            }, 800); 
             setTimeout(() => {
               blockThree.classList.add('active');
               blockTwo.classList.remove('active');
