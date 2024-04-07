@@ -1,0 +1,132 @@
+@media only screen and (max-width:1260px){ 
+
+  }
+  
+  @media only screen and (max-width:992px){
+    .header .header-text{
+        text-align: center;
+    }
+    nav.popUp{
+        width: 45vw;
+    }
+    .menuBtn{
+        z-index: 200;
+        box-shadow: none;
+        filter: none;
+    }
+    .menuBtn span{
+        background: white;
+    }
+  }
+
+  @media only screen and (max-width:768px){ 
+    nav.popUp{
+        width: 65vw;
+    }
+    main .block-two.active .block-two__text, main .block-three.active .block-two__text{
+        left: 0;
+        right: 0;
+    }
+    main .block-three.active .block-two__button{
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        top: auto;
+        width: 100%;
+        text-align: center;
+    }
+    main .block-three.active {
+        transition:1.5s;
+    }
+    main .block-three.active .block-two__text{
+        padding-bottom: 30px;
+    }
+
+    main .block-four.active .bg-video3{
+        object-position: 80%;
+        transition:1s;
+    }
+    main .block-four.active .block-two__text{
+        right: 20px;
+        left: auto;
+    }
+    main .block-four.active .block-two__text p{
+        width: 230px;
+    }
+    main .block-four.active .block-two__button {
+        bottom:100px;
+        left: 20px;
+        top: auto;
+    }
+  }
+
+  /* МОБИЛКА*/
+  @media only screen and (max-width:570px){  
+    .header .header-text h1{
+        font-size: 70px;
+    }
+    .header .header-text h2{
+        margin-top: 0px;
+        font-size: 50px;
+    }
+    nav.popUp{
+        width: 85vw;
+    }
+    .header img{
+        width: 130px;
+    }
+    main .block-two.active .block-two__text p, main .block-three.active .block-two__text p{
+        width: 100%;
+    }
+    main .block-three.active .block-two__button button{
+        width: 200px;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    .footer-logo img{
+        width: 200px;
+    }
+
+    footer.footerActive .policy{
+        position: fixed ; 
+        bottom: 50px;
+        top: auto; 
+        left: 0;
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .footer-other{
+        display: none;
+    }
+    footer.footerActive .footer-block{
+        display: flex;
+        flex-direction: row-reverse;
+
+        justify-content: center;
+        gap: 50px;
+    }
+    footer.footerActive .dop{
+        display: block;
+    }
+  }
+  @media only screen and (max-width:400px){
+    .header .header-text h1{
+        font-size: 60px;
+    }
+    .header .header-text h2{
+        font-size: 40px;
+    }
+    nav.popUp{
+        width: 90vw;
+    }
+    .footer-other{
+        position: absolute;
+        top: 400px;
+        left: 25px;
+    }
+  }
+  @media only screen and (max-width:320px){
+   
+  }
+  

@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Space Ranger";
+  src: url(/spaceranger-rus.otf);
+}
 * {
   margin: 0%;
   box-sizing: border-box;
@@ -80,7 +84,12 @@ body {
   right: 0;
   bottom: 0;
   width: 100%;
+  height: 100vh;
   z-index: -100;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .pruning2 {
@@ -132,8 +141,12 @@ body {
   right: 0;
   bottom: 0;
   width: 100%;
+  height: 100vh;
   z-index: -100;
-  transform-origin: bottom;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .pruningTwo-reverse {
@@ -172,6 +185,7 @@ body {
      object-position: bottom;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: 1s;
 }
 
 .header {
@@ -186,6 +200,23 @@ body {
 .header.removeBlock {
   opacity: 0;
   transition: 0.4s;
+}
+.header .bg-video1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  /* Определяем, что все другие элементы на странице будут поверх видео */
+  z-index: -100;
+  -webkit-animation: approximation 20s linear infinite;
+          animation: approximation 20s linear infinite;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .header .header-text {
   color: white;
@@ -205,11 +236,33 @@ body {
   font-family: "Space Ranger", sans-serif;
 }
 .header .header-text h2 {
-  margin-top: -15px;
   font-size: 80px;
   font-family: "Space Ranger", sans-serif;
 }
 
+@-webkit-keyframes approximation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes approximation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
 .menuBtn.active span:nth-of-type(1) {
   display: none;
 }
@@ -226,7 +279,6 @@ body {
 
 .menuBtn {
   cursor: pointer;
-  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,6 +288,7 @@ body {
   top: 40px;
   box-shadow: -1px 5px 30px 15px white;
   filter: drop-shadow(1px 1px 1px white);
+  z-index: 100;
   padding-left: 30px;
 }
 
@@ -262,42 +315,6 @@ nav {
   top: calc(60% + 3px);
 }
 
-.bg-video1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  /* Определяем, что все другие элементы на странице будут поверх видео */
-  z-index: -100;
-  -webkit-animation: approximation 20s linear infinite;
-          animation: approximation 20s linear infinite;
-}
-
-@-webkit-keyframes approximation {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
-
-@keyframes approximation {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1.5);
-  }
-}
 nav.popUp {
   display: flex;
   flex-direction: column;
@@ -333,7 +350,7 @@ nav.popUp li {
 nav.popUp a {
   text-decoration: none;
   color: white;
-  font-size: 35px;
+  font-size: 25px;
 }
 nav.popUp .eng {
   position: absolute;
@@ -479,12 +496,17 @@ main .block-two.active .bg-video2 {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 100vh;
   /* Определяем, что все другие элементы на странице будут поверх видео */
   z-index: -100;
   -webkit-animation: approximation2 40s linear infinite;
           animation: approximation2 40s linear infinite;
   transform: scale(1.13);
   transform-origin: bottom;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main .block-two.active .block-two__text {
   position: fixed;
@@ -504,9 +526,11 @@ main .block-two.active .block-two__text p {
 }
 main .block-three {
   opacity: 0;
+  transition: 0.2s;
 }
 main .block-three.active {
   opacity: 1;
+  transition: 0.2s;
   position: fixed;
   z-index: 20;
   top: 0;
@@ -642,9 +666,32 @@ main .block-four.active .block-two__button button:hover {
     transform: none;
   }
 }
+@-webkit-keyframes hideFooter {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0%, 100%, 0px);
+  }
+}
+@keyframes hideFooter {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0%, 100%, 0px);
+  }
+}
 footer {
   opacity: 0;
   transition: 0.3s;
+  -webkit-animation: hideFooter 0.3s linear;
+          animation: hideFooter 0.3s linear;
+  animation-direction: reverse; /* Default direction for hiding */
 }
 footer.footerActive {
   transition: 0.3s;
@@ -664,6 +711,8 @@ footer.footerActive {
   z-index: 50;
   -webkit-animation: showFooter 0.3s linear;
           animation: showFooter 0.3s linear;
+  -webkit-animation-direction: normal;
+          animation-direction: normal; /* Specify normal direction for showing */
 }
 footer.footerActive .policy {
   margin-left: 90px;
@@ -707,4 +756,13 @@ footer.footerActive .eng {
   top: 0;
   right: 0;
   left: 0;
+}
+footer.footerActive .dop {
+  display: none;
+}
+footer.footerActive .footer-block {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 130px;
 }/*# sourceMappingURL=style.css.map */
