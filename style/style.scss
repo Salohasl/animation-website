@@ -76,7 +76,7 @@ body {
         bottom: 0;
         width: 100%;
         height: 100vh;
-        z-index: -100;
+        z-index: -200;
         object-position: bottom;
         object-fit: cover;
     }
@@ -92,7 +92,7 @@ body {
         bottom: 0;
         width: 100%;
         height: 100vh;
-        z-index: -100;
+        z-index: -200;
         object-position: bottom;
         object-fit: cover;
     }
@@ -115,9 +115,8 @@ body {
 }
 .pruningOne-reverse{
     opacity: 0;
-    transition: .8s;
+    z-index: -200;
     &.activeOneReverse{
-        transition: .8s;
         opacity: 1;
         position: fixed;
         top: 0;
@@ -126,7 +125,7 @@ body {
         bottom: 0;
         width: 100%;
         height: 100vh;
-        z-index: -100;
+        z-index: -200;
         object-position: bottom;
         object-fit: cover;
     }
@@ -459,10 +458,10 @@ main{
  
     .block-three{
         opacity: 0;
-        transition: .8s;
+    //    transition: .8s;
         &.active{
             opacity: 1;
-            transition: .8s;
+    //        transition: .8s;
             position: fixed;
             z-index: -90;
             top: 0;

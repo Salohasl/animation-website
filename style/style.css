@@ -85,7 +85,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 100vh;
-  z-index: -100;
+  z-index: -200;
   -o-object-position: bottom;
      object-position: bottom;
   -o-object-fit: cover;
@@ -104,7 +104,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 100vh;
-  z-index: -100;
+  z-index: -200;
   -o-object-position: bottom;
      object-position: bottom;
   -o-object-fit: cover;
@@ -132,6 +132,7 @@ body {
 
 .pruningOne-reverse {
   opacity: 0;
+  z-index: -200;
 }
 .pruningOne-reverse.activeOneReverse {
   opacity: 1;
@@ -142,7 +143,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 100vh;
-  z-index: -100;
+  z-index: -200;
   -o-object-position: bottom;
      object-position: bottom;
   -o-object-fit: cover;
@@ -483,11 +484,11 @@ main {
 }
 main .block-two {
   opacity: 0;
-  transition: 0.4s;
+  transition: 0.8s;
 }
 main .block-two.active {
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.8s;
 }
 main .block-two.active .bg-video2 {
   position: fixed;
@@ -498,7 +499,7 @@ main .block-two.active .bg-video2 {
   width: 100%;
   height: 100vh;
   /* Определяем, что все другие элементы на странице будут поверх видео */
-  z-index: -100;
+  z-index: -90;
   -webkit-animation: approximation2 40s linear infinite;
           animation: approximation2 40s linear infinite;
   transform: scale(1.13);
@@ -526,13 +527,11 @@ main .block-two.active .block-two__text p {
 }
 main .block-three {
   opacity: 0;
-  transition: 0.2s;
 }
 main .block-three.active {
   opacity: 1;
-  transition: 0.2s;
   position: fixed;
-  z-index: 20;
+  z-index: -90;
   top: 0;
   bottom: 0;
   left: 0;
@@ -577,6 +576,7 @@ main .block-three.active .block-two__button button {
   border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
   border-radius: 15px;
   font-size: 18px;
+  color: black;
   cursor: pointer;
 }
 main .block-three.active .block-two__button button:hover {
@@ -640,6 +640,7 @@ main .block-four.active .block-two__button button {
   border-radius: 15px;
   font-size: 18px;
   cursor: pointer;
+  color: black;
 }
 main .block-four.active .block-two__button button:hover {
   box-shadow: inset 1px 1px 5px black;

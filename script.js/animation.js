@@ -13,24 +13,25 @@
   const pruningReverse3 = document.querySelector('.pruningThree-reverse');
   const footer = document.querySelector('footer');
   let lastScrollTop = 0; // Запомнить последнее положение прокрутки
-  // Пороги прокрутки для блоков
-  const blockTwoThreshold = 100; 
-  const blockThreeThreshold = 200; 
-  const blockFourThreshold = 300; 
-  const blockFooterThreshold = 400; 
-
+  let  blockTwoThreshold = 100;
+  let blockThreeThreshold = 200;
+  let blockFourThreshold = 300;
+  let blockFooterThreshold = 400;
+  let isScrolling = false;
 
 
 function scrollElement(){
   
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
     let direction = scrollTop > lastScrollTop ? 'down' : 'up';
-    console.log(scrollTop)
-   
+    console.log(direction)
+    console.log(window.scrollY)
 
-    if (direction === 'down') {
-      
-        if (!blockTwo.classList.contains('active') && blockTwoThreshold >= scrollTop) {
+    
+
+    if (direction === 'down' && window.scrollY <= 400) {
+      //console.log(lastScrollTop)
+        if (!header.classList.contains('removeBlock')) {
            document.body.classList.add('body-no-scroll');
           for(let scrollText of scrollTexts){
             scrollText.style.opacity = '0';
@@ -45,10 +46,10 @@ function scrollElement(){
            }, 800); 
            header.classList.add('removeBlock'); 
            setTimeout(() => {
-               blockTwo.classList.add('active');
+              blockTwo.classList.add('active');
            }, 400);
            blockThree.classList.remove('active');
-        } else if (!blockThree.classList.contains('active') && blockThreeThreshold >= scrollTop){
+        } else if (blockTwo.classList.contains('active')){
             // Показать blockThree и скрыть blockTwo
             document.body.classList.add('body-no-scroll');
             pruning2.classList.add('active');
@@ -59,12 +60,11 @@ function scrollElement(){
               pruning2.removeAttribute('loop');
               document.body.classList.remove('body-no-scroll');
             }, 800); 
+            blockTwo.classList.remove('active');
             setTimeout(() => {
               blockThree.classList.add('active');
-              blockTwo.classList.remove('active');
-            }, 400);
-          
-        } else if(!blockFour.classList.contains('active') && blockFourThreshold >= scrollTop){
+            }, 600);
+        } else if(blockThree.classList.contains('active')){
             // Показать blockFour и скрыть blockThree
             document.body.classList.add('body-no-scroll');
             pruning3.classList.add('active');
@@ -79,7 +79,8 @@ function scrollElement(){
               blockFour.classList.add('active');
               blockThree.classList.remove('active');
             }, 2000);
-        } else if(!footer.classList.contains('footerActive') && blockFooterThreshold >= scrollTop){
+  
+        } else if(blockFour.classList.contains('active')){
             // Показать footer
             document.body.classList.add('body-no-scroll');
             setTimeout(() => {
@@ -87,9 +88,30 @@ function scrollElement(){
               blockFour.classList.remove('active');
               footer.classList.add('footerActive');
             }, 300); 
-
-        } 
-    } else {
+ 
+        }
+    } else if(direction === 'up' && window.scrollY >= 0){
+      if(window.scrollY == 0){
+        for(let scrollText of scrollTexts){
+          scrollText.style.opacity = '1';
+        }
+        document.body.classList.add('body-no-scroll');
+        pruningReverse.classList.add('activeOneReverse');
+        pruningReverse.setAttribute('loop', 'true');
+        pruningReverse.play();
+        setTimeout(() => {
+          pruningReverse.removeAttribute('loop');
+          pruningReverse.classList.remove('activeOneReverse');
+          document.body.classList.remove('body-no-scroll');
+        }, 800); 
+        blockTwo.classList.remove('active');
+        setTimeout(() => {
+            header.classList.remove('removeBlock'); 
+        }, 400);
+      blockThree.classList.remove('active');
+      clickNum = 0;
+      }
+  
       if (blockTwo.classList.contains('active')) {
           for(let scrollText of scrollTexts){
             scrollText.style.opacity = '1';
@@ -102,11 +124,11 @@ function scrollElement(){
             pruningReverse.removeAttribute('loop');
             pruningReverse.classList.remove('activeOneReverse');
             document.body.classList.remove('body-no-scroll');
-          }, 800); 
+          }, 700); 
           blockTwo.classList.remove('active');
           setTimeout(() => {
               header.classList.remove('removeBlock'); 
-          }, 400);
+          },200);
         blockThree.classList.remove('active');
         clickNum = 0;
       } else if (blockThree.classList.contains('active')) {
@@ -134,7 +156,6 @@ function scrollElement(){
           pruningReverse3.classList.remove('activeThreeReverse');
           document.body.classList.remove('body-no-scroll');
         }, 2000); 
-        //  header.classList.add('removeBlock'); 
         blockFour.classList.remove('active');
         setTimeout(() => {
           blockThree.classList.add('active');
@@ -152,7 +173,11 @@ function scrollElement(){
       }
     } 
 
+
     lastScrollTop = scrollTop;
+    setTimeout(() => {
+      isScrolling = false;
+    }, 100); // Задержка для "debouncing"
 }
 
 let clickNum = 0;
@@ -178,7 +203,6 @@ function handleScrollClick(event) {
     for(let scrollText of scrollTexts){
       scrollText.style.opacity = '0';
     }
-    blockTwoThreshold;
     pruning.classList.add('active');
     pruning.setAttribute('loop', 'true');
     pruning.play();
