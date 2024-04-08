@@ -2,7 +2,7 @@
   const blockTwo = document.querySelector('.block-two');
   const header = document.querySelector('.header');
   const pruning = document.querySelector('.pruning');
-  const scrollClick = document.querySelectorAll('.scroll');
+  const scrollClick = document.querySelector('.scroll');
   const scrollTexts = document.querySelectorAll('.scroll-text');
   const pruningReverse = document.querySelector('.pruningOne-reverse');
   const pruningReverse2 = document.querySelector('.pruningTwo-reverse');
@@ -12,38 +12,44 @@
   const pruning3 = document.querySelector('.pruning3');
   const pruningReverse3 = document.querySelector('.pruningThree-reverse');
   const footer = document.querySelector('footer');
-
+  let languageBtn = document.querySelector('.language');
   let  blockTwoThreshold = 100;
   let blockThreeThreshold = 200;
   let blockFourThreshold = 300;
   let blockFooterThreshold = 400;
 
-
+  function restartGIF() {
+    // Сохраняем текущий src
+    var currentSrc = pruning.src;
+    // Удаляем атрибут src
+    pruning.src = '';
+    // Восстанавливаем src, что приведет к перезагрузке изображения
+    pruning.src = currentSrc;
+}
 function scrollElement(event){
-    console.log(event.deltaY)
-    let direction = event.deltaY > 0 ? 'down' : 'up'; //scrollTop > lastScrollTop ? 'down' : 'up';
-    console.log(direction)
+    let direction = event.deltaY > 0 ? 'down' : 'up'; 
  
     if (direction === 'down') {
 
         if (!header.classList.contains('removeBlock')) {
            document.body.classList.add('body-no-scroll');
-          for(let scrollText of scrollTexts){
+           for(let scrollText of scrollTexts){
             scrollText.style.opacity = '0';
           }
            pruning.classList.add('active');
-           pruning.setAttribute('loop', 'true');
-           pruning.play();
+        //   pruning.setAttribute('loop', 'true');
+        //   pruning.play();
            setTimeout(() => {
-             pruning.classList.remove('active');
-             pruning.removeAttribute('loop');
+            pruning.classList.remove('active');
+            restartGIF()
+        //     pruning.removeAttribute('loop');
              document.body.classList.remove('body-no-scroll');
            }, 800); 
            header.classList.add('removeBlock'); 
            setTimeout(() => {
               blockTwo.classList.add('active');
            }, 500);
-           blockThree.classList.remove('active');
+
         } else if (blockTwo.classList.contains('active')){
             // Показать blockThree и скрыть blockTwo
             document.body.classList.add('body-no-scroll');
@@ -88,9 +94,12 @@ function scrollElement(event){
     } else if(direction === 'up'){
   
       if (blockTwo.classList.contains('active')) {
-          for(let scrollText of scrollTexts){
-            scrollText.style.opacity = '1';
+          if(languageBtn.textContent == 'Eng'){
+            scrollTexts[0].style.opacity = '1';
+          }else{
+            scrollTexts[1].style.opacity = '1';
           }
+        
           document.body.classList.add('body-no-scroll');
           pruningReverse.classList.add('activeOneReverse');
           pruningReverse.setAttribute('loop', 'true');
@@ -162,14 +171,16 @@ function touchmoveScroll(event){
   lastY = currentY;
 //  let direction = deltaY > 0 ? 'down' : 'up'; //scrollTop > lastScrollTop ? 'down' : 'up';
  
-  console.log(deltaY)
+  console.log(lastY )
 
   if (deltaY < 0) {
 
       if (!header.classList.contains('removeBlock')) {
          document.body.classList.add('body-no-scroll');
-        for(let scrollText of scrollTexts){
-          scrollText.style.opacity = '0';
+         if(languageBtn.textContent == 'Eng'){
+          scrollTexts[0].style.opacity = '1';
+        }else{
+          scrollTexts[1].style.opacity = '1';
         }
          pruning.classList.add('active');
          pruning.setAttribute('loop', 'true');
@@ -312,16 +323,19 @@ function handleScrollClick(event) {
   });
 
   if (!blockTwo.classList.contains('active') && clickNum == 0) {
-    for(let scrollText of scrollTexts){
-      scrollText.style.opacity = '0';
+    if(languageBtn.textContent == 'Eng'){
+      scrollTexts[0].style.opacity = '1';
+    }else{
+      scrollTexts[1].style.opacity = '1';
     }
     pruning.classList.add('active');
-    pruning.setAttribute('loop', 'true');
-    pruning.play();
-    setTimeout(() => {
-      pruning.classList.remove('active');
-      pruning.removeAttribute('loop');
-    }, 800); 
+        //   pruning.setAttribute('loop', 'true');
+        //   pruning.play();
+           setTimeout(() => {
+            pruning.classList.remove('active');
+            restartGIF()
+        //     pruning.removeAttribute('loop');
+           }, 800);
     header.classList.add('removeBlock'); 
     setTimeout(() => {
         blockTwo.classList.add('active');
@@ -336,10 +350,10 @@ function handleScrollClick(event) {
       pruning2.classList.remove('active');
       pruning2.removeAttribute('loop');
     }, 800); 
-    setTimeout(() => {
+    blockTwo.classList.remove('active');
+      setTimeout(() => {
       blockThree.classList.add('active');
-      blockTwo.classList.remove('active');
-    }, 500);
+    }, 800);
   
   } else if(!blockFour.classList.contains('active') && clickNum == 2){
     // Показать blockFour и скрыть blockThree
@@ -369,9 +383,9 @@ function handleScrollClick(event) {
 
 window.addEventListener('wheel', scrollElement);
 window.addEventListener('touchmove', touchmoveScroll);
-scrollClick.forEach(clickScroll => {
-  clickScroll.addEventListener('click', handleScrollClick);
-});
+
+scrollClick.addEventListener('click', handleScrollClick);
+
       
 
 
