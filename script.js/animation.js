@@ -20,16 +20,16 @@
   let isScrolling = false;
 
 
-function scrollElement(){
-  
+function scrollElement(event){
+    console.log(event.deltaY)
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    let direction = scrollTop > lastScrollTop ? 'down' : 'up';
+    let direction = event.deltaY > 0 ? 'down' : 'up'; //scrollTop > lastScrollTop ? 'down' : 'up';
     console.log(direction)
-    console.log(window.scrollY)
+  //  console.log(window.scrollY)
 
     
 
-    if (direction === 'down' && window.scrollY <= 400) {
+    if (direction === 'down') {
       //console.log(lastScrollTop)
         if (!header.classList.contains('removeBlock')) {
            document.body.classList.add('body-no-scroll');
@@ -90,27 +90,7 @@ function scrollElement(){
             }, 300); 
  
         }
-    } else if(direction === 'up' && window.scrollY >= 0){
-      if(window.scrollY == 0){
-        for(let scrollText of scrollTexts){
-          scrollText.style.opacity = '1';
-        }
-        document.body.classList.add('body-no-scroll');
-        pruningReverse.classList.add('activeOneReverse');
-        pruningReverse.setAttribute('loop', 'true');
-        pruningReverse.play();
-        setTimeout(() => {
-          pruningReverse.removeAttribute('loop');
-          pruningReverse.classList.remove('activeOneReverse');
-          document.body.classList.remove('body-no-scroll');
-        }, 800); 
-        blockTwo.classList.remove('active');
-        setTimeout(() => {
-            header.classList.remove('removeBlock'); 
-        }, 400);
-      blockThree.classList.remove('active');
-      clickNum = 0;
-      }
+    } else if(direction === 'up'){
   
       if (blockTwo.classList.contains('active')) {
           for(let scrollText of scrollTexts){
@@ -255,8 +235,8 @@ function handleScrollClick(event) {
 }
 
 
-window.addEventListener('scroll', scrollElement);
-
+window.addEventListener('wheel', scrollElement);
+window.addEventListener('touchmove', scrollElement);
 scrollClick.forEach(clickScroll => {
   clickScroll.addEventListener('click', handleScrollClick);
 });

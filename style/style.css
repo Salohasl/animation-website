@@ -74,10 +74,10 @@ body {
 }
 
 .pruning {
-  opacity: 0;
+  display: none;
 }
 .pruning.active {
-  opacity: 1;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -93,10 +93,10 @@ body {
 }
 
 .pruning2 {
-  opacity: 0;
+  display: none;
 }
 .pruning2.active {
-  opacity: 1;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -112,10 +112,10 @@ body {
 }
 
 .pruning3 {
-  opacity: 0;
+  display: none;
 }
 .pruning3.active {
-  opacity: 1;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -131,11 +131,11 @@ body {
 }
 
 .pruningOne-reverse {
-  opacity: 0;
+  display: none;
   z-index: -200;
 }
 .pruningOne-reverse.activeOneReverse {
-  opacity: 1;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -151,10 +151,10 @@ body {
 }
 
 .pruningTwo-reverse {
-  opacity: 0;
+  display: none;
 }
 .pruningTwo-reverse.activeReverse {
-  opacity: 1;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -170,10 +170,10 @@ body {
 }
 
 .pruningThree-reverse {
-  opacity: 0;
+  display: none;
 }
 .pruningThree-reverse.activeThreeReverse {
-  opacity: 1;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -190,7 +190,7 @@ body {
 }
 
 .header {
-  opacity: 1;
+  display: block;
   transition: 0.4s;
 }
 .header img {
@@ -199,7 +199,7 @@ body {
   top: 0;
 }
 .header.removeBlock {
-  opacity: 0;
+  display: none;
   transition: 0.4s;
 }
 .header .bg-video1 {
@@ -483,11 +483,11 @@ main {
   height: 100vh;
 }
 main .block-two {
-  opacity: 0;
+  display: none;
   transition: 0.8s;
 }
 main .block-two.active {
-  opacity: 1;
+  display: block;
   transition: 0.8s;
 }
 main .block-two.active .bg-video2 {
@@ -526,10 +526,10 @@ main .block-two.active .block-two__text p {
   font-weight: 400;
 }
 main .block-three {
-  opacity: 0;
+  display: none;
 }
 main .block-three.active {
-  opacity: 1;
+  display: block;
   position: fixed;
   z-index: -90;
   top: 0;
@@ -583,10 +583,10 @@ main .block-three.active .block-two__button button:hover {
   box-shadow: inset 1px 1px 5px black;
 }
 main .block-four {
-  opacity: 0;
+  display: none;
 }
 main .block-four.active {
-  opacity: 1;
+  display: block;
 }
 main .block-four.active .bg-video3 {
   position: fixed;
@@ -648,22 +648,22 @@ main .block-four.active .block-two__button button:hover {
 
 @-webkit-keyframes showFooter {
   0% {
-    opacity: 0;
+    display: none;
     transform: translate3d(0%, 100%, 0px);
   }
   100% {
-    opacity: 1;
+    display: block;
     transform: none;
   }
 }
 
 @keyframes showFooter {
   0% {
-    opacity: 0;
+    display: none;
     transform: translate3d(0%, 100%, 0px);
   }
   100% {
-    opacity: 1;
+    display: block;
     transform: none;
   }
 }
@@ -688,7 +688,7 @@ main .block-four.active .block-two__button button:hover {
   }
 }
 footer {
-  opacity: 0;
+  display: none;
   transition: 0.3s;
   -webkit-animation: hideFooter 0.3s linear;
           animation: hideFooter 0.3s linear;
@@ -696,7 +696,7 @@ footer {
 }
 footer.footerActive {
   transition: 0.3s;
-  opacity: 1;
+  display: block;
   background-image: url(/img/1.png);
   background-repeat: no-repeat;
   background-size: cover;
