@@ -527,9 +527,11 @@ main .block-two.active .block-two__text p {
 }
 main .block-three {
   display: none;
+  transition: 0.8s;
 }
 main .block-three.active {
   display: block;
+  transition: 0.8s;
   position: fixed;
   z-index: -90;
   top: 0;

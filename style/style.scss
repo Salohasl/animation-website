@@ -459,10 +459,10 @@ main{
  
     .block-three{
         display: none;
-    //    transition: .8s;
+        transition: .8s;
         &.active{
             display: block;
-    //        transition: .8s;
+            transition: .8s;
             position: fixed;
             z-index: -90;
             top: 0;
