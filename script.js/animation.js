@@ -18,14 +18,7 @@
   let blockFourThreshold = 300;
   let blockFooterThreshold = 400;
 
-  function restartGIF() {
-    // Сохраняем текущий src
-    var currentSrc = pruning.src;
-    // Удаляем атрибут src
-    pruning.src = '';
-    // Восстанавливаем src, что приведет к перезагрузке изображения
-    pruning.src = currentSrc;
-}
+
 function scrollElement(event){
     let direction = event.deltaY > 0 ? 'down' : 'up'; 
  
@@ -37,18 +30,17 @@ function scrollElement(event){
             scrollText.style.opacity = '0';
           }
            pruning.classList.add('active');
-        //   pruning.setAttribute('loop', 'true');
-        //   pruning.play();
+           pruning.setAttribute('loop', 'true');
+           pruning.play();
            setTimeout(() => {
-            pruning.classList.remove('active');
-            restartGIF()
-        //     pruning.removeAttribute('loop');
+             pruning.classList.remove('active');
+             pruning.removeAttribute('loop');
              document.body.classList.remove('body-no-scroll');
            }, 800); 
            header.classList.add('removeBlock'); 
            setTimeout(() => {
               blockTwo.classList.add('active');
-           }, 500);
+           }, 800);
 
         } else if (blockTwo.classList.contains('active')){
             // Показать blockThree и скрыть blockTwo
@@ -80,7 +72,6 @@ function scrollElement(event){
               blockFour.classList.add('active');
               blockThree.classList.remove('active');
             }, 2000);
-  
         } else if(blockFour.classList.contains('active')){
             // Показать footer
             document.body.classList.add('body-no-scroll');
@@ -89,7 +80,7 @@ function scrollElement(event){
               blockFour.classList.remove('active');
               footer.classList.add('footerActive');
             }, 300); 
- 
+            scrollClick.style.opacity = '0';
         }
     } else if(direction === 'up'){
   
@@ -154,33 +145,26 @@ function scrollElement(event){
           footer.classList.remove('footerActive');
         }, 300); 
         clickNum = 3
+        scrollClick.style.opacity = '1';
       }
     } 
 
 }
 
-let lastY = 0; // Переменная для хранения последней координаты Y
-function touchmoveScroll(event){
-  // Получаем текущую координату Y
-  let currentY = event.touches[0].clientY;
 
-  // Вычисляем deltaY как разницу между текущей и последней координатой Y
-  let deltaY = currentY - lastY;
+function touchStart(event) {
+  startY = event.touches[0].clientY;
+}
+function touchMoveScroll(event){
+const currentY = event.touches[0].clientY;
+const diffY = startY - currentY;
 
-  // Обновляем lastY для следующего события
-  lastY = currentY;
-//  let direction = deltaY > 0 ? 'down' : 'up'; //scrollTop > lastScrollTop ? 'down' : 'up';
- 
-  console.log(lastY )
-
-  if (deltaY < 0) {
-
+  if (diffY > 0) {
       if (!header.classList.contains('removeBlock')) {
+
          document.body.classList.add('body-no-scroll');
-         if(languageBtn.textContent == 'Eng'){
-          scrollTexts[0].style.opacity = '1';
-        }else{
-          scrollTexts[1].style.opacity = '1';
+         for(let scrollText of scrollTexts){
+          scrollText.style.opacity = '0';
         }
          pruning.classList.add('active');
          pruning.setAttribute('loop', 'true');
@@ -193,9 +177,10 @@ function touchmoveScroll(event){
          header.classList.add('removeBlock'); 
          setTimeout(() => {
             blockTwo.classList.add('active');
-         }, 400);
+         }, 800);
          blockThree.classList.remove('active');
       } else if (blockTwo.classList.contains('active')){
+
           // Показать blockThree и скрыть blockTwo
           document.body.classList.add('body-no-scroll');
           pruning2.classList.add('active');
@@ -209,8 +194,9 @@ function touchmoveScroll(event){
           blockTwo.classList.remove('active');
           setTimeout(() => {
             blockThree.classList.add('active');
-          }, 600);
+          }, 800);
       } else if(blockThree.classList.contains('active')){
+
           // Показать blockFour и скрыть blockThree
           document.body.classList.add('body-no-scroll');
           pruning3.classList.add('active');
@@ -234,14 +220,16 @@ function touchmoveScroll(event){
             blockFour.classList.remove('active');
             footer.classList.add('footerActive');
           }, 300); 
-
+          scrollClick.style.opacity = '0';
       }
-  } else if(deltaY > 0){
-
+    
+  } else if(diffY < 0){
     if (blockTwo.classList.contains('active')) {
-        for(let scrollText of scrollTexts){
-          scrollText.style.opacity = '1';
-        }
+      if(languageBtn.textContent == 'Eng'){
+        scrollTexts[0].style.opacity = '1';
+      }else{
+        scrollTexts[1].style.opacity = '1';
+      }
         document.body.classList.add('body-no-scroll');
         pruningReverse.classList.add('activeOneReverse');
         pruningReverse.setAttribute('loop', 'true');
@@ -250,11 +238,11 @@ function touchmoveScroll(event){
           pruningReverse.removeAttribute('loop');
           pruningReverse.classList.remove('activeOneReverse');
           document.body.classList.remove('body-no-scroll');
-        }, 700); 
+        }, 800); 
         blockTwo.classList.remove('active');
         setTimeout(() => {
             header.classList.remove('removeBlock'); 
-        },200);
+        },800);
       blockThree.classList.remove('active');
       clickNum = 0;
     } else if (blockThree.classList.contains('active')) {
@@ -270,7 +258,7 @@ function touchmoveScroll(event){
       blockThree.classList.remove('active');
       setTimeout(() => {
         blockTwo.classList.add('active');
-      }, 500);
+      }, 800);
       clickNum = 1
     } else if (blockFour.classList.contains('active')){
       document.body.classList.add('body-no-scroll');
@@ -296,9 +284,10 @@ function touchmoveScroll(event){
         footer.classList.remove('footerActive');
       }, 300); 
       clickNum = 3
+      scrollClick.style.opacity = '1';
     }
   } 
-
+    startY = currentY;
 }
 
 
@@ -324,22 +313,21 @@ function handleScrollClick(event) {
 
   if (!blockTwo.classList.contains('active') && clickNum == 0) {
     if(languageBtn.textContent == 'Eng'){
-      scrollTexts[0].style.opacity = '1';
-    }else{
-      scrollTexts[1].style.opacity = '1';
-    }
+            scrollTexts[0].style.opacity = '1';
+          }else{
+            scrollTexts[1].style.opacity = '1';
+          }
     pruning.classList.add('active');
-        //   pruning.setAttribute('loop', 'true');
-        //   pruning.play();
-           setTimeout(() => {
-            pruning.classList.remove('active');
-            restartGIF()
-        //     pruning.removeAttribute('loop');
-           }, 800);
+    pruning.setAttribute('loop', 'true');
+    pruning.play();
+    setTimeout(() => {
+      pruning.classList.remove('active');
+      pruning.removeAttribute('loop');
+    }, 800); 
     header.classList.add('removeBlock'); 
     setTimeout(() => {
         blockTwo.classList.add('active');
-    }, 400);
+    }, 800);
     blockThree.classList.remove('active');
   } else if (!blockThree.classList.contains('active') && clickNum == 1){
     // Показать blockThree и скрыть blockTwo
@@ -368,6 +356,7 @@ function handleScrollClick(event) {
       blockFour.classList.add('active');
       blockThree.classList.remove('active');
     }, 2000);
+    scrollClick.style.opacity = '1';
   } else if(!footer.classList.contains('footerActive')  && clickNum == 3){
     // Показать footer
     setTimeout(() => {
@@ -382,8 +371,8 @@ function handleScrollClick(event) {
 
 
 window.addEventListener('wheel', scrollElement);
-window.addEventListener('touchmove', touchmoveScroll);
-
+window.addEventListener('touchstart', touchStart);
+window.addEventListener('touchmove', touchMoveScroll);
 scrollClick.addEventListener('click', handleScrollClick);
 
       
