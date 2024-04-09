@@ -148,7 +148,9 @@ function scrollElement(event){
         scrollClick.style.opacity = '1';
       }
     } 
-
+        
+ // Вызов requestAnimationFrame для следующего кадра анимации
+ requestAnimationFrame(touchMoveScroll);
 }
 
 
@@ -288,13 +290,17 @@ const diffY = startY - currentY;
     }
   } 
     startY = currentY;
+
+    
+ // Вызов requestAnimationFrame для следующего кадра анимации
+ requestAnimationFrame(touchMoveScroll);
 }
 
 
 
 let clickNum = 0;
   // Обработчик события клика на элементах .scroll
-function handleScrollClick(event) {
+function handleScrollClick() {
   let targetScrollPosition = 0;
   if (clickNum === 0) {
       targetScrollPosition = blockTwoThreshold; //Позиция прокрутки
@@ -366,7 +372,9 @@ function handleScrollClick(event) {
     scrollClick.style.opacity = '0';
   }
   clickNum++
-  event.preventDefault();
+
+   // Вызов requestAnimationFrame для следующего кадра анимации
+ requestAnimationFrame(touchMoveScroll);
 }
 
 
