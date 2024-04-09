@@ -18,9 +18,11 @@
   let blockFourThreshold = 300;
   let blockFooterThreshold = 400;
 
-
+  let isScrolling = false;
+  let scrollTimeout;
 function scrollElement(event){
     let direction = event.deltaY > 0 ? 'down' : 'up'; 
+
     if (direction === 'down') {
 
         if (!header.classList.contains('removeBlock')) {
@@ -132,10 +134,32 @@ function scrollElement(event){
         scrollClick.style.opacity = '1';
       }
     } 
-        
- // Вызов requestAnimationFrame для следующего кадра анимации
- requestAnimationFrame(touchMoveScroll);
+      // Если прокрутка уже идет, не делаем ничего
+      if (isScrolling) return;
+
+      // Начинаем анимационный цикл
+      isScrolling = true;
+      requestAnimationFrame(updateScroll);
 }
+
+function updateScroll() {
+  // Ваш код обновления состояния прокрутки
+  console.log('1')
+  // Проверяем, не прекратилась ли прокрутка
+  if (!isScrolling) {
+      return;
+  }
+  // Запрашиваем следующий кадр анимации
+  requestAnimationFrame(updateScroll);
+}
+
+function stopScrolling() {
+  isScrolling = false;
+  console.log('2')
+}
+
+
+
 
 
 function touchStart(event) {
@@ -251,8 +275,12 @@ const diffY = startY - currentY;
     startY = currentY;
 
     
- // Вызов requestAnimationFrame для следующего кадра анимации
- requestAnimationFrame(touchMoveScroll);
+      // Если прокрутка уже идет, не делаем ничего
+      if (isScrolling) return;
+
+      // Начинаем анимационный цикл
+      isScrolling = true;
+      requestAnimationFrame(updateScroll);
 }
 
 
@@ -333,13 +361,26 @@ function handleScrollClick() {
   clickNum++
 
    // Вызов requestAnimationFrame для следующего кадра анимации
- requestAnimationFrame(touchMoveScroll);
+ requestAnimationFrame(touchStart);
 }
 
 
+// Начинаем анимационный цикл при начале прокрутки
 window.addEventListener('wheel', scrollElement);
+// Останавливаем анимационный цикл, когда прокрутка прекращается
+window.addEventListener('wheel', function() {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(stopScrolling, 100); // Задержка 100 мс
+});
+
+
 window.addEventListener('touchstart', touchStart);
 window.addEventListener('touchmove', touchMoveScroll);
+window.addEventListener('touchmove', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(stopScrolling, 100); // Задержка 100 мс
+});
+
 scrollClick.addEventListener('click', handleScrollClick);
 
       
