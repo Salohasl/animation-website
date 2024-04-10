@@ -216,11 +216,17 @@ const diffY = startY - currentY;
           }
            pruning.classList.add('active');
            pruning.setAttribute('loop', 'true');
+           if (!pruning.paused) {
+            pruning.pause();
+          }
            pruning.play();
            setTimeout(() => {
-             pruning.classList.remove('active');
-             pruning.removeAttribute('loop');
-      
+            pruning.addEventListener('ended', function() {
+              pruning.pause();
+              pruning.currentTime = 0; // Возвращение к началу видео
+            });
+            pruning.classList.remove('active');
+            pruning.removeAttribute('loop');
              blockTwo.classList.add('active');
            }, 1200); 
         }
@@ -233,11 +239,17 @@ const diffY = startY - currentY;
           // Показать blockThree и скрыть blockTwo
           pruning2.classList.add('active');
           pruning2.setAttribute('loop', 'true');
-          pruning2.play();
-          setTimeout(() => {
+          if (!pruning2.paused) {
+            pruning2.pause();
+          }
+           pruning2.play();
+           setTimeout(() => {
+              pruning2.addEventListener('ended', function() {
+              pruning2.pause();
+              pruning2.currentTime = 0; // Возвращение к началу видео
+            });
             pruning2.classList.remove('active');
             pruning2.removeAttribute('loop');
-          
             blockThree.classList.add('active');
           }, 2000); 
         }
@@ -250,8 +262,15 @@ const diffY = startY - currentY;
           // Показать blockFour и скрыть blockThree
           pruning3.classList.add('active');
           pruning3.setAttribute('loop', 'true');
-          pruning3.play();
-          setTimeout(() => {
+          if (!pruning3.paused) {
+            pruning3.pause();
+          }
+           pruning3.play();
+           setTimeout(() => {
+            pruning3.addEventListener('ended', function() {
+              pruning3.pause();
+              pruning3.currentTime = 0; // Возвращение к началу видео
+            });
             pruning3.classList.remove('active');
             pruning3.removeAttribute('loop');
             blockFour.classList.add('active');
@@ -282,10 +301,17 @@ const diffY = startY - currentY;
         }
           pruningReverse.classList.add('activeOneReverse');
           pruningReverse.setAttribute('loop', 'true');
+          if (!pruningReverse.paused) {
+            pruningReverse.pause();
+          }
           pruningReverse.play();
-          setTimeout(() => {
-            pruningReverse.removeAttribute('loop');
+           setTimeout(() => {
+            pruningReverse.addEventListener('ended', function() {
+              pruningReverse.pause();
+              pruningReverse.currentTime = 0; // Возвращение к началу видео
+            });
             pruningReverse.classList.remove('activeOneReverse');
+            pruningReverse.removeAttribute('loop');
             header.classList.remove('removeBlock'); 
           }, 1200); 
       }
@@ -298,10 +324,17 @@ const diffY = startY - currentY;
       if(!blockThree.classList.contains('active')){
         pruningReverse2.classList.add('activeReverse');
         pruningReverse2.setAttribute('loop', 'true');
+        if (!pruningReverse2.paused) {
+          pruningReverse2.pause();
+        }
         pruningReverse2.play();
-        setTimeout(() => {
-          pruningReverse2.removeAttribute('loop');
+         setTimeout(() => {
+          pruningReverse2.addEventListener('ended', function() {
+            pruningReverse2.pause();
+            pruningReverse2.currentTime = 0; // Возвращение к началу видео
+          });
           pruningReverse2.classList.remove('activeReverse');
+          pruningReverse2.removeAttribute('loop');
           blockTwo.classList.add('active');
         }, 2000); 
       }
@@ -314,10 +347,17 @@ const diffY = startY - currentY;
       if(!blockFour.classList.contains('active')){
         pruningReverse3.classList.add('activeThreeReverse');
         pruningReverse3.setAttribute('loop', 'true');
+        if (!pruningReverse3.paused) {
+          pruningReverse3.pause();
+        }
         pruningReverse3.play();
-        setTimeout(() => {
-          pruningReverse3.removeAttribute('loop');
+         setTimeout(() => {
+          pruningReverse3.addEventListener('ended', function() {
+            pruningReverse3.pause();
+            pruningReverse3.currentTime = 0; // Возвращение к началу видео
+          });
           pruningReverse3.classList.remove('activeThreeReverse');
+          pruningReverse3.removeAttribute('loop');
           blockThree.classList.add('active');
         }, 2000); 
       }
