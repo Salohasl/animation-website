@@ -78,7 +78,7 @@ body {
         width: 100%;
         height: 100vh;
         z-index: 20;
-        object-position: bottom;
+        object-position: center;
         object-fit: cover;
     }
 }
@@ -94,7 +94,7 @@ body {
         width: 100%;
         height: 100vh;
         z-index: -200;
-        object-position: bottom;
+        object-position: center;
         object-fit: cover;
     }
 }
@@ -110,7 +110,7 @@ body {
         width: 100%;
         height: 100vh;
         z-index: 20;
-        object-position: bottom;
+        object-position: center;
         object-fit: cover;
     }
 }
@@ -127,7 +127,7 @@ body {
         width: 100%;
         height: 100vh;
         z-index: -200;
-        object-position: bottom;
+        object-position: center;
         object-fit: cover;
     }
 }
@@ -143,7 +143,7 @@ body {
         width: 100%;
         height: 100vh;
         z-index: -100;
-        object-position: bottom;
+        object-position: center;
         object-fit: cover;
     }
 }
@@ -159,7 +159,7 @@ body {
         width: 100%;
         height: 100vh;
         z-index: -100;
-        object-position: bottom;
+        object-position: center;
         object-fit: cover;
         transition: 1s;
     }
@@ -167,7 +167,6 @@ body {
 
 .header{
     display: block;
-    transition: .4s;
     img{
         margin: 20px;
         position: fixed;
@@ -175,7 +174,6 @@ body {
     }
     &.removeBlock{
         display: none;
-        transition: .4s;
     }
     .bg-video1{
         position: fixed;
@@ -187,8 +185,9 @@ body {
         height: 100vh;
         /* Определяем, что все другие элементы на странице будут поверх видео */
         z-index: -100;
-        animation: approximation 20s linear infinite;
-        object-position: bottom;
+        transform: scale(1.19);
+     //   animation: approximation 40s linear infinite;
+        object-position: center;
         object-fit: cover;
     }
     .header-text{
@@ -253,8 +252,11 @@ body {
     -moz-box-shadow: -1px 5px 30px 15px white;
     box-shadow: -1px 5px 30px 15px white;
     filter: drop-shadow(1px 1px 1px white);
-    // background: rgb(250, 250, 250, 1); 
+     background: rgb(250, 250, 250, .8); 
+     border-radius: 20px;
     z-index: 100;
+    width: 40px;
+    height: 30px;
     padding-left: 30px;
   }
   nav{
@@ -433,10 +435,10 @@ main{
                 height: 100vh;
                 /* Определяем, что все другие элементы на странице будут поверх видео */
                 z-index: -90;
-                animation: approximation2 40s linear infinite;
+            //    animation: approximation2 40s linear infinite;
                 transform: scale(1.13);
-                transform-origin: bottom;
-                object-position: bottom;
+              //  transform-origin: bottom;
+                object-position: center;
                 object-fit: cover;
             }
             .block-two__text{
@@ -463,10 +465,12 @@ main{
  
     .block-three{
         display: none;
-        transition: .8s;
+
+
         &.active{
+
             display: block;
-            transition: .8s;
+            transform: scale(1.10);
             position: fixed;
             z-index: -90;
             top: 0;
@@ -541,8 +545,8 @@ main{
                 height: 100vh;
                 /* Определяем, что все другие элементы на странице будут поверх видео */
                 z-index: -100;
-                animation: approximation 130s linear infinite;
-                object-position: bottom;
+           //     animation: approximation 130s linear infinite;
+                object-position: center;
                 object-fit: cover;
             }
             .block-two__text{

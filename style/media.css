@@ -13,6 +13,8 @@
         z-index: 200;
         box-shadow: none;
         filter: none;
+        width: 0;
+        height: 0;
     }
     .menuBtn span{
         background: white;
@@ -74,6 +76,9 @@
     }
     .header img{
         width: 130px;
+    }
+    main .block-two.active .block-two__text, main .block-three.active .block-two__text{
+        margin: 5px;
     }
     main .block-two.active .block-two__text p, main .block-three.active .block-two__text p{
         width: 100%;
