@@ -474,7 +474,7 @@ main{
             display: block;
             transform: scale(1.10);
             position: fixed;
-            z-index: -90;
+          //  z-index: -90;
             top: 0;
             bottom: 0;
             left: 0;
@@ -504,6 +504,7 @@ main{
                 }
             }
             .block-two__button{
+            
                 position: fixed;
                 top: 290px;
                 left: 150px;
