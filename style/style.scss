@@ -164,7 +164,9 @@ body {
         transition: 1s;
     }
 }
-
+.block-two, .block-three, .block-four, footer {
+    will-change: opacity, transform;
+}
 .header{
     display: block;
     img{

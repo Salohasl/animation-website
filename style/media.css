@@ -78,10 +78,13 @@
         width: 130px;
     }
     main .block-two.active .block-two__text, main .block-three.active .block-two__text{
-        margin: 5px;
+        margin: 10px;
     }
     main .block-two.active .block-two__text p, main .block-three.active .block-two__text p{
         width: 100%;
+    }
+    main .block-three.active{
+        transform: scale(1);
     }
     main .block-three.active .block-two__button button{
         width: 200px;
