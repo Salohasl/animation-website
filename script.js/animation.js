@@ -52,8 +52,15 @@ function scrollElement(event){
                   }
                   pruning.classList.add('active');
                   pruning.setAttribute('loop', 'true');
+                  if (!pruning.paused) {
+                    pruning.pause();
+                  }
                   pruning.play();
                   setTimeout(() => {
+                    pruning.addEventListener('ended', function() {
+                      pruning.pause();
+                      pruning.currentTime = 0; // Возвращение к началу видео
+                    });
                     pruning.classList.remove('active');
                     pruning.removeAttribute('loop');
                     blockTwo.classList.add('active');
@@ -68,8 +75,15 @@ function scrollElement(event){
                     // Показать blockThree и скрыть blockTwo
                     pruning2.classList.add('active');
                     pruning2.setAttribute('loop', 'true');
+                    if (!pruning2.paused) {
+                      pruning2.pause();
+                    }
                     pruning2.play();
                     setTimeout(() => {
+                      pruning2.addEventListener('ended', function() {
+                        pruning2.pause();
+                        pruning2.currentTime = 0; // Возвращение к началу видео
+                      });
                       pruning2.classList.remove('active');
                       pruning2.removeAttribute('loop');
             
@@ -84,11 +98,17 @@ function scrollElement(event){
                   // Показать blockFour и скрыть blockThree
                   pruning3.classList.add('active');
                   pruning3.setAttribute('loop', 'true');
+                  if (!pruning3.paused) {
+                    pruning3.pause();
+                  }
                   pruning3.play();
                   setTimeout(() => {
+                    pruning3.addEventListener('ended', function() {
+                      pruning3.pause();
+                      pruning3.currentTime = 0; // Возвращение к началу видео
+                    });
                     pruning3.classList.remove('active');
                     pruning3.removeAttribute('loop');
-      
                     blockFour.classList.add('active');
                   }, 2000); 
                 } 
@@ -115,10 +135,17 @@ function scrollElement(event){
               if(!blockTwo.classList.contains('active')){
                 pruningReverse.classList.add('activeOneReverse');
                 pruningReverse.setAttribute('loop', 'true');
+                if (!pruningReverse.paused) {
+                  pruningReverse.pause();
+                }
                 pruningReverse.play();
                 setTimeout(() => {
-                  pruningReverse.removeAttribute('loop');
+                  pruningReverse.addEventListener('ended', function() {
+                    pruningReverse.pause();
+                    pruningReverse.currentTime = 0; // Возвращение к началу видео
+                  });
                   pruningReverse.classList.remove('activeOneReverse');
+                  pruningReverse.removeAttribute('loop');
                   header.classList.remove('removeBlock'); 
                 }, 1200); 
               }
@@ -130,10 +157,17 @@ function scrollElement(event){
             if(!blockThree.classList.contains('active')){
               pruningReverse2.classList.add('activeReverse');
               pruningReverse2.setAttribute('loop', 'true');
+              if (!pruningReverse2.paused) {
+                pruningReverse2.pause();
+              }
               pruningReverse2.play();
               setTimeout(() => {
-                pruningReverse2.removeAttribute('loop');
+                pruningReverse2.addEventListener('ended', function() {
+                  pruningReverse2.pause();
+                  pruningReverse2.currentTime = 0; // Возвращение к началу видео
+                });
                 pruningReverse2.classList.remove('activeReverse');
+                pruningReverse2.removeAttribute('loop');
                 blockTwo.classList.add('active');
               }, 2000); 
             }
@@ -145,10 +179,17 @@ function scrollElement(event){
             if(!blockFour.classList.contains('active')){
               pruningReverse3.classList.add('activeThreeReverse');
               pruningReverse3.setAttribute('loop', 'true');
+              if (!pruningReverse3.paused) {
+                pruningReverse3.pause();
+              }
               pruningReverse3.play();
               setTimeout(() => {
-                pruningReverse3.removeAttribute('loop');
+                pruningReverse3.addEventListener('ended', function() {
+                  pruningReverse3.pause();
+                  pruningReverse3.currentTime = 0; // Возвращение к началу видео
+                });
                 pruningReverse3.classList.remove('activeThreeReverse');
+                pruningReverse3.removeAttribute('loop');
       
                 blockThree.classList.add('active');
               }, 2000); 
@@ -280,9 +321,8 @@ const diffY = startY - currentY;
 
       } else if(blockFour.classList.contains('active')){
           // Показать footer
+          blockFour.classList.remove('active');
           setTimeout(() => {
-   
-            blockFour.classList.remove('active');
             footer.classList.add('footerActive');
           }, 300); 
           scrollClick.style.opacity = '0';
@@ -422,11 +462,18 @@ function handleScrollClick() {
       }
        pruning.classList.add('active');
        pruning.setAttribute('loop', 'true');
-       pruning.play();
-       setTimeout(() => {
-         pruning.classList.remove('active');
-         pruning.removeAttribute('loop');
-         blockTwo.classList.add('active');
+       if (!pruning.paused) {
+        pruning.pause();
+      }
+      pruning.play();
+      setTimeout(() => {
+        pruning.addEventListener('ended', function() {
+          pruning.pause();
+          pruning.currentTime = 0; // Возвращение к началу видео
+        });
+        pruning.classList.remove('active');
+        pruning.removeAttribute('loop');
+        blockTwo.classList.add('active');
        }, 1200); 
     }
 
@@ -437,8 +484,15 @@ function handleScrollClick() {
     if(!blockTwo.classList.contains('active')){
       pruning2.classList.add('active');
       pruning2.setAttribute('loop', 'true');
+      if (!pruning2.paused) {
+        pruning2.pause();
+      }
       pruning2.play();
       setTimeout(() => {
+        pruning2.addEventListener('ended', function() {
+          pruning2.pause();
+          pruning2.currentTime = 0; // Возвращение к началу видео
+        });
         pruning2.classList.remove('active');
         pruning2.removeAttribute('loop');
   
@@ -453,8 +507,15 @@ function handleScrollClick() {
     if(!blockThree.classList.contains('active')){
       pruning3.classList.add('active');
       pruning3.setAttribute('loop', 'true');
+      if (!pruning3.paused) {
+        pruning3.pause();
+      }
       pruning3.play();
       setTimeout(() => {
+        pruning3.addEventListener('ended', function() {
+          pruning3.pause();
+          pruning3.currentTime = 0; // Возвращение к началу видео
+        });
         pruning3.classList.remove('active');
         pruning3.removeAttribute('loop');
   
