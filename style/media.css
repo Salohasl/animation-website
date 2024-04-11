@@ -32,7 +32,7 @@
     main .block-three.active .block-two__button{
         left: 0;
         right: 0;
-        bottom: 100px;
+        bottom: 150px;
         top: auto;
         width: 100%;
         text-align: center;
@@ -70,7 +70,7 @@
   /* МОБИЛКА*/
   @media only screen and (max-width:570px){  
     .engBtn{
-        margin-bottom: 200px !important;
+        margin-bottom: 100px !important;
     }
     .rusBtn{
         margin-bottom: -150px !important;

@@ -213,12 +213,7 @@ function scrollElement(event){
 
         ticking = true;
     }
-      // Если прокрутка уже идет, не делаем ничего
-    //  if (isScrolling) return;
-
-      // Начинаем анимационный цикл
-    //  isScrolling = true;
-    //  requestAnimationFrame(updateScroll);
+  
 }
 window.addEventListener('wheel', scrollElement, { passive: true });
 
@@ -226,8 +221,7 @@ window.addEventListener('wheel', scrollElement, { passive: true });
 
 
 function updateScroll() {
-  // Ваш код обновления состояния прокрутки
-  console.log('1')
+  
   // Проверяем, не прекратилась ли прокрутка
   if (!isScrolling) {
       return;
@@ -237,7 +231,6 @@ function updateScroll() {
 }
 function stopScrolling() {
   isScrolling = false;
-  console.log('2')
 }
 
 function touchStart(event) {
@@ -541,20 +534,5 @@ function handleScrollClick() {
 scrollClick.addEventListener('click', handleScrollClick);
 
 
-/*
-// Начинаем анимационный цикл при начале прокрутки
-window.addEventListener('wheel', scrollElement);
-// Останавливаем анимационный цикл, когда прокрутка прекращается
-window.addEventListener('wheel', function() {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(stopScrolling, 100); // Задержка 100 мс
-});
-
-window.addEventListener('touchstart', touchStart);
-window.addEventListener('touchmove', touchMoveScroll);
-window.addEventListener('touchmove', function() {
-  clearTimeout(scrollTimeout);
-  scrollTimeout = setTimeout(stopScrolling, 100); // Задержка 100 мс
-});*/
 
 
