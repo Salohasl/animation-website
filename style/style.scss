@@ -533,13 +533,15 @@ main{
 
     .block-four{
         display: none;
-    //    transition: .3s;
+        transition: transform 0.3s ease-out;
+        transform: translateX(80%);
         &.active{
             
             display: block;
-    //        transition: .5s;
+            transform: translateX(0%);
             .bg-video3{
                 position: fixed;
+                
                 top: 0;
                 right: 0;
                 left: 0;
@@ -610,21 +612,22 @@ main{
 
 @keyframes hideFooter {
     0% {               
-        opacity: 1;
-        transform: none;
+        display: block;
+        transform: translate3d(0%, -100%, 0px);
+
     }
     100% {              
-        opacity: 0;
-        transform: translate3d(0%, 100%, 0px);
+        display: none;
+        transform: none;
     }
 }
 footer{
     display: none;
     transition: .3s;
-    animation: hideFooter .3s linear;
+    animation: hideFooter .2s linear;
     animation-direction: reverse; /* Default direction for hiding */
     &.footerActive{
-        transition: .3s;
+        transition: .2s;
         display: block;
         background-image: url(/img/1.png);
         background-repeat: no-repeat;

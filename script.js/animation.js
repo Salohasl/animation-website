@@ -528,7 +528,7 @@ function handleScrollClick() {
     // Показать footer
     setTimeout(() => {
       footer.classList.add('footerActive');
-    }, 300); 
+    }, 300);
     blockFour.classList.remove('active');
     scrollClick.style.opacity = '0';
   }
