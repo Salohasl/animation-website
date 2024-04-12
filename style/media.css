@@ -134,7 +134,9 @@
     footer.footerActive .footer-contacts a span{
         display: none;
     }
-
+    footer.footerActive .footer-link{
+        gap: 10px;
+    }
   }
   @media only screen and (max-width:400px){
     .header .header-text h1{

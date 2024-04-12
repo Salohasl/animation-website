@@ -236,7 +236,10 @@ function stopScrolling() {
 function touchStart(event) {
   startY = event.touches[0].clientY;
 }
+let isTouchMoveScrollActive = false;
 function touchMoveScroll(event){
+  
+  isTouchMoveScrollActive = true; // Set flag to true when touchMoveScroll starts
 const currentY = event.touches[0].clientY;
 const diffY = startY - currentY;
 
@@ -264,6 +267,7 @@ const diffY = startY - currentY;
              blockTwo.classList.add('active');
            }, 1200); 
         }
+        clickNum = 0;
          startY = currentY; // Обновляем startY после перехода
 
       } else if (blockTwo.classList.contains('active')){
@@ -287,6 +291,7 @@ const diffY = startY - currentY;
             blockThree.classList.add('active');
           }, 2000); 
         }
+        clickNum = 1;
         startY = currentY; // Обновляем startY после перехода
 
       } else if(blockThree.classList.contains('active')){
@@ -310,6 +315,7 @@ const diffY = startY - currentY;
             blockFour.classList.add('active');
           }, 2000); 
         }
+        clickNum = 2;
         startY = currentY; // Обновляем startY после перехода
 
       } else if(blockFour.classList.contains('active')){
@@ -318,6 +324,7 @@ const diffY = startY - currentY;
           setTimeout(() => {
             footer.classList.add('footerActive');
           }, 300); 
+          clickNum = 3;
           scrollClick.style.opacity = '0';
           startY = currentY; // Обновляем startY после перехода
       }
@@ -417,6 +424,7 @@ const diffY = startY - currentY;
     //   Начинаем анимационный цикл
       isScrolling = true;
       requestAnimationFrame(updateScroll);
+      isTouchMoveScrollActive = false; // Set flag to false when touchMoveScroll ends
 }
 window.addEventListener('touchstart', touchStart);
 window.addEventListener('touchmove', touchMoveScroll, { passive: true });
@@ -430,6 +438,12 @@ window.addEventListener('touchmove', function() {
 let clickNum = 0;
   // Обработчик события клика на элементах .scroll
 function handleScrollClick() {
+
+  if (isTouchMoveScrollActive) {
+    // If touchMoveScroll is active, do not execute the rest of handleScrollClick
+    return;
+ }
+
   let targetScrollPosition = 0;
   if (clickNum === 0) {
       targetScrollPosition = blockTwoThreshold; //Позиция прокрутки
@@ -446,7 +460,7 @@ function handleScrollClick() {
     behavior: 'smooth' // Необязательно: плавная прокрутка
   });
 
-  if (!blockTwo.classList.contains('active') && clickNum == 0) {
+  if (!header.classList.contains('removeBlock') && clickNum == 0) {
 
     header.classList.add('removeBlock'); 
     if(header.classList.contains('removeBlock')){
@@ -470,7 +484,7 @@ function handleScrollClick() {
        }, 1200); 
     }
 
-  } else if (!blockThree.classList.contains('active') && clickNum == 1){
+  } else if (blockTwo.classList.contains('active') && clickNum == 1){
 
     // Показать blockThree и скрыть blockTwo
     blockTwo.classList.remove('active');
@@ -493,7 +507,7 @@ function handleScrollClick() {
       }, 2000); 
     }
 
-  } else if(!blockFour.classList.contains('active') && clickNum == 2){
+  } else if(blockThree.classList.contains('active') && clickNum == 2){
 
     // Показать blockFour и скрыть blockThree
     blockThree.classList.remove('active');
@@ -517,7 +531,7 @@ function handleScrollClick() {
     }
 
 
-  } else if(!footer.classList.contains('footerActive')  && clickNum == 3){
+  } else if(blockFour.classList.contains('active') && clickNum == 3){
     // Показать footer
     setTimeout(() => {
       footer.classList.add('footerActive');
