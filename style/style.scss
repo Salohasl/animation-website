@@ -256,10 +256,10 @@ body {
     filter: drop-shadow(1px 1px 1px white);
      background: rgb(250, 250, 250, .8); 
      border-radius: 20px;
-    z-index: 100;
     width: 40px;
     height: 30px;
     padding-left: 30px;
+    z-index: 200;
   }
   nav{
     display: none;
@@ -288,7 +288,7 @@ body {
 nav.popUp{
     display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
         background: rgba(36, 35, 34, 1);
         position: fixed;
@@ -301,12 +301,13 @@ nav.popUp{
         animation-name: fadeInDown;/* Имя анимации */
         z-index: 100;
         padding-top: 20px;
+        padding-left: 20px;
+        z-index: 400;
         ul{
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            margin-left: 15px;
             line-height: 50px;
         }
         li{
@@ -317,6 +318,25 @@ nav.popUp{
             text-decoration: none;
             color: white;
             font-size: 25px;
+            transition: .5s;
+            &:hover{
+                color: #505050;
+            }
+        }
+        .messenger{
+            position: absolute;
+            bottom: 100px;
+            left: 60px;
+            img{
+                margin: 5px;
+                cursor: pointer;
+            }
+        }
+        .logo{
+            margin-left: 30px;
+        }
+        .engLogo{
+            position: absolute;
         }
         .eng{
             position: absolute;
@@ -647,6 +667,29 @@ footer{
         .policy{
             margin-left: 90px;
             width: 100px;
+            z-index: 300;
+            position: sticky;
+            a{
+                transition: .5s;
+                &:hover{
+                    color: #505050;
+                }
+            }
+
+        }
+        .footer-contacts{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            a{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                position: sticky;
+                z-index: 300;
+            }
         }
         .footer-link{
             display: flex;
@@ -654,46 +697,57 @@ footer{
             align-items: center;
             justify-content: space-around;
             flex-wrap: wrap;
-            padding-top: 90px;
-            color:#F2F2F2;
+            padding-top: 150px;
+            color:white;
             gap: 30px;
             line-height: 30px;
         }
+        .footer-menu{
+            p{
+                position: sticky;
+                margin-top:10px;
+                z-index: 300;
+                a{
+                    transition: .5s;
+                    &:hover{
+                        color: #505050;
+                    }
+                }
+
+            }
+        }
         a{
             text-decoration: none;
-            color: #F2F2F2;
+            color: white;
             font-size: 20px;
-            font-weight: 200;
+            font-weight: 400;
             font-family: "Inter", sans-serif;
+
         }
         h2{
-            font-size: 20px;
+            font-size: 25px;
             margin-top: 90px;
             font-family: 'Space Ranger', sans-serif;
         }
         
         .bott{
             position: absolute;
-            color: #F2F2F2;
+            color: white;
             bottom: 10px;
             width: 100%;
             text-align: center;
         }
-        .footer-other{
-            margin-top: 95px;
-        }
+
         .eng{
             position: absolute;
             top: 0;
             right: 0;
             left: 0;
         }
-        .dop{
-            display: none;
-        }
+
         .footer-block{
             display: flex;
-            flex-direction: row-reverse;
+            flex-direction: row;
             justify-content: center;
             gap: 130px;
     

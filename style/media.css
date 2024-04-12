@@ -10,7 +10,7 @@
         width: 45vw;
     }
     .menuBtn{
-        z-index: 200;
+        z-index: 500;
         box-shadow: none;
         filter: none;
         width: 0;
@@ -118,19 +118,23 @@
     footer.footerActive .bott{
         bottom: 60px;
     }
-    .footer-other{
-        display: none;
-    }
-    footer.footerActive .footer-block{
-        display: flex;
-        flex-direction: row-reverse;
 
+    footer.footerActive .footer-block{
         justify-content: center;
         gap: 50px;
     }
-    footer.footerActive .dop{
-        display: block;
+    .link-contact{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 80px;
+        gap: 20px;
+        align-items: center;
     }
+    footer.footerActive .footer-contacts a span{
+        display: none;
+    }
+
   }
   @media only screen and (max-width:400px){
     .header .header-text h1{
@@ -141,11 +145,6 @@
     }
     nav.popUp{
         width: 90vw;
-    }
-    .footer-other{
-        position: absolute;
-        top: 400px;
-        left: 25px;
     }
   }
   @media only screen and (max-width:320px){
