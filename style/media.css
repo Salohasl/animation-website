@@ -31,15 +31,15 @@
     }
     main .block-three.active .block-two__button{
         width: 100%;
-        gap: 0px;
+        gap: 5px;
         left: 0%;
         right: 0;
-        bottom: 150px;
-        top: 80%;
-        width: 100%;
+        top: 75%;
         text-align: center;
+        
         display: flex;
         flex-direction: row;
+        justify-content: center;
         height: 60px;
     }
     main .block-three.active {
@@ -107,9 +107,10 @@
         transform: scale(1);
     }
     main .block-three.active .block-two__button button{
-        width: 200px;
+        width: 100%;
         font-size: 15px;
         margin-top: 10px;
+
     }
     .footer-logo img{
         width: 200px;
@@ -154,21 +155,22 @@
     }
     main .block-four.active .block-two__button .mobile{
         display: block ;
-        width: 200px;
+        width: 100%;
         font-size: 15px;
         margin-top: 10px;
         top: 300px;
     }
     main .block-four.active .block-two__button{
-        gap: 0px;
+        gap: 5px;
         left: 0%;
-        right: 0;
-        bottom: 150px;
-        top: 80%;
-        width: 100%;
+        right: 0px;
+        
+        top: 75%;
+        width: 100% !important;
         text-align: center;
         display: flex;
         flex-direction: row;
+        justify-content: center;
         height: 60px;
     }
   }
