@@ -217,18 +217,7 @@ body {
     }
 }
 
-@keyframes approximation {
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.2);
-      //  transform-origin: bottom right;
-    }
-    100%{
-        transform: scale(1.5);
-    }
-}
+
 
 .menuBtn.active span:nth-of-type(1) {
     display: none;
@@ -429,18 +418,7 @@ nav{
         transform: translate3d(0%, -10px, 0px);
     }
 }
-@keyframes approximation2 {
-    0%{
-        transform: scale(1.13);
-    }
-    50%{
-        transform: scale(1.2);
-      //  transform-origin: bottom right;
-    }
-    100%{
-        transform: scale(1.5);
-    }
-}
+
 main{
     height: 100vh;
     .block-two{
@@ -461,7 +439,7 @@ main{
                 z-index: -90;
             //    animation: approximation2 40s linear infinite;
                 transform: scale(1.13);
-              //  transform-origin: bottom;
+ 
                 object-position: center;
                 object-fit: cover;
             }
@@ -568,9 +546,7 @@ main{
                 bottom: 0;
                 width: 100%;
                 height: 100vh;
-                /* Определяем, что все другие элементы на странице будут поверх видео */
                 z-index: -100;
-           //     animation: approximation 130s linear infinite;
                 object-position: center;
                 object-fit: cover;
             }

@@ -185,6 +185,12 @@
         justify-content: center;
         margin-bottom: 0px !important;
     }
+    main .block-two.active .bg-video2{
+        transform-origin: top;
+    }
+    main .block-four.active .bg-video3{
+        transform-origin: top;
+    }
 
   }
   @media only screen and (max-width:400px){
