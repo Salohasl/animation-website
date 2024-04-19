@@ -101,7 +101,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top:150px;
+        margin-top:40%;
         top: auto;
         position: absolute;
     }
@@ -112,6 +112,7 @@
         right: 0px;
         margin-top:50px;
         position: absolute;
+        top: 15%;
     }
    
     main .block-three.active{
@@ -184,9 +185,7 @@
         justify-content: center;
         margin-bottom: 0px !important;
     }
-    .fix{
-        margin-bottom: 150px;
-    }
+
   }
   @media only screen and (max-width:400px){
     .header .header-text h1{
