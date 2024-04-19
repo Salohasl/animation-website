@@ -30,12 +30,17 @@
         right: 0;
     }
     main .block-three.active .block-two__button{
-        left: 0;
+        width: 100%;
+        gap: 0px;
+        left: 0%;
         right: 0;
         bottom: 150px;
-        top: auto;
+        top: 80%;
         width: 100%;
         text-align: center;
+        display: flex;
+        flex-direction: row;
+        height: 60px;
     }
     main .block-three.active {
         transition:1.5s;
@@ -142,7 +147,7 @@
         gap: 10px;
     }
     .scroll{
-        bottom: 70px;
+        bottom: 30px;
     }
     .desktop{
         display: none;
@@ -156,12 +161,15 @@
     }
     main .block-four.active .block-two__button{
         gap: 0px;
-        left: 23%;
+        left: 0%;
         right: 0;
         bottom: 150px;
-        top: 65%;
+        top: 80%;
         width: 100%;
         text-align: center;
+        display: flex;
+        flex-direction: row;
+        height: 60px;
     }
   }
   @media only screen and (max-width:400px){
