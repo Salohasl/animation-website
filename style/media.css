@@ -34,13 +34,13 @@
         gap: 5px;
         left: 0%;
         right: 0;
-        top: 75%;
         text-align: center;
-        
+        height: 100vh !important;
+        padding-bottom: 150px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: center;
-        height: 60px;
     }
     main .block-three.active {
         transition:1.5s;
@@ -164,14 +164,12 @@
         gap: 5px;
         left: 0%;
         right: 0px;
-        
-        top: 75%;
-        width: 100% !important;
-        text-align: center;
+        height: 100vh !important;
+        padding-bottom: 20px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: center;
-        height: 60px;
     }
   }
   @media only screen and (max-width:400px){
