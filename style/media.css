@@ -60,11 +60,7 @@
     main .block-four.active .block-two__text p{
         width: 230px;
     }
-    main .block-four.active .block-two__button {
-        position: static;
-        margin-left: 20px;
-        top: auto;
-    }
+
   }
 
   /* МОБИЛКА*/
@@ -88,12 +84,20 @@
     .header img{
         width: 130px;
     }
-    main .block-two.active .block-two__text, main .block-three.active .block-two__text{
-        margin: 10px;
+    main .block-three.active .block-two__text{
+        margin-top: 30px;
     }
-    main .block-two.active .block-two__text p, main .block-three.active .block-two__text p{
+    main .block-two.active .block-two__text{
+        margin-top:50px;
+    }
+    main .block-two.active .block-two__text p, main .block-three.active .block-two__text p, main .block-four.active .block-two__text p{
         width: 100%;
     }
+    main .block-four.active .block-two__text{
+        right: 0px;
+        margin-top:50px;
+    }
+   
     main .block-three.active{
         transform: scale(1);
     }
@@ -136,6 +140,28 @@
     }
     footer.footerActive .footer-link{
         gap: 10px;
+    }
+    .scroll{
+        bottom: 70px;
+    }
+    .desktop{
+        display: none;
+    }
+    main .block-four.active .block-two__button .mobile{
+        display: block ;
+        width: 200px;
+        font-size: 15px;
+        margin-top: 10px;
+        top: 300px;
+    }
+    main .block-four.active .block-two__button{
+        gap: 0px;
+        left: 23%;
+        right: 0;
+        bottom: 150px;
+        top: 65%;
+        width: 100%;
+        text-align: center;
     }
   }
   @media only screen and (max-width:400px){

@@ -5,12 +5,9 @@
 *{
     margin: 0%;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: "Mulish", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
     font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
 }
 
 ::-webkit-scrollbar{
@@ -168,13 +165,17 @@ body {
 .block-two, .block-three, .block-four, footer {
     will-change: opacity, transform;
 }
-.header{
-    display: block;
+.logo-fix{
     img{
         margin: 20px;
         position: fixed;
         top: 0;
     }
+}
+
+.header{
+    display: block;
+
     &.removeBlock{
         display: none;
     }
@@ -468,15 +469,15 @@ main{
                 position: fixed;
                 top: 100px;
                 left: 150px;
-                padding: 30px;
+                padding: 20px;
                 border-radius: 20px;
                 background-color:rgba(52, 49, 47, 0.7);
                 border: 0.5px solid  #505050;
                 line-height: 20px;
                 p{
+                    font-size: 17px;
                     color: white;
                     width: 420px;
-                    font-family: "Inter", sans-serif;
                     font-weight: 400;
                 }
             }
@@ -508,10 +509,9 @@ main{
             height: 100vh;
             .block-two__text{
                 position: fixed;
-                top: 100px;
-                left: 150px;
-                padding: 30px;
-                padding-bottom: 10px;
+                top: 120px;
+                left:200px;
+                padding: 20px;
                 border-radius: 20px;
                 background-color:rgba(52, 49, 47, 0.7);
                 border: 0.5px solid  #505050;
@@ -519,22 +519,21 @@ main{
                 p{
                     color: white;
                     opacity: 1;
-                    width: 420px;
-                    font-family: "Inter", sans-serif;
+                    width: 435px;
+                    font-size: 17px;
                     font-weight: 400;
                 }
             }
             .block-two__button{
             
                 position: fixed;
-                top: 290px;
-                left: 150px;
-                font-family: 'Space Ranger', sans-serif;
+                top: 310px;
+                left:200px;
                 line-height: 20px;
                 button{
-                    font-family: 'Space Ranger', sans-serif;
-                    width: 240px;
-                    padding: 15px;
+                    font-weight: 900;
+                    width: 237px;
+                    padding: 10px;
                     background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
                     border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
                     border-radius: 15px;
@@ -579,7 +578,7 @@ main{
                 position: fixed;
                 top: 100px;
                 left: 150px;
-                padding: 30px;
+                padding: 20px;
                 border-radius: 20px;
                 background-color:rgba(52, 49, 47, 0.7);
                 border: 0.5px solid  #505050;
@@ -587,7 +586,7 @@ main{
                 p{
                     color: white;
                     width: 300px;
-                    font-family: "Inter", sans-serif;
+                    font-size: 17px;
                     font-weight: 400;
                 }
             }
@@ -595,15 +594,14 @@ main{
                 position: fixed;
                 top: 250px;
                 left: 150px;
-                font-family: 'Space Ranger', sans-serif;
                 line-height: 20px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
                 button{
-                    font-family: 'Space Ranger', sans-serif;
+                    font-weight: 900;
                     width: 270px;
-                    padding: 15px;
+                    padding: 10px;
                     background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
                     border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
                     border-radius: 15px;
@@ -613,6 +611,9 @@ main{
                     &:hover{
                         box-shadow: inset 1px 1px 5px black;
                     }
+                }
+                .mobile{
+                    display: none;
                 }
             }
         }
@@ -682,7 +683,7 @@ footer{
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 10px;
+            gap: 5px;
             a{
                 display: flex;
                 flex-direction: row;
@@ -706,7 +707,7 @@ footer{
         .footer-menu{
             p{
                 position: sticky;
-                margin-top:10px;
+                margin-top:8px;
                 z-index: 300;
                 a{
                     transition: .5s;

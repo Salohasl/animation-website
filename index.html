@@ -17,13 +17,18 @@
 <link href="https://fonts.cdnfonts.com/css/space-ranger" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Black+Ops+One&family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Black+Ops+One&family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
   <video autoplay muted  class="pruningOne-reverse" webkit-playsinline playsinline>
     <source src="/video/v1-reverse.mp4" type="video/mp4">
   </video>
   <div class="header-block">
+    <div class="logo-fix">
+      <a href="/index.html"><img id="rus" src="/icon/logo.png" alt="logo" width="170px"></a>
+      <a href="/index.html"><img id="eng" class="engLogo" src="/icon/logoEng.png" alt="logo" width="170px"></a>
+    </div>
+    
     <div class="menuBtn">
       <span></span>
       <span></span>
@@ -37,17 +42,15 @@
           <a href="#"><li>каталог</li></a>
           <a href="#"><li>окты</li></a>
           <a href="#"><li>об авторе</li></a>
-          <a href="#"><li>мастер-классы</li></a>
-          <a href="#"><li>блог</li></a>
-          <a href="#"><li>отзывы</li></a>
+          <a href="#"><li>мастер-класс</li></a>
+          <a href="#"><li>Медиа</li></a>
         </div>
         <div id="eng" class="eng">
           <a href="#"><li>Catalog</li></a>
           <a href="#"><li>Octs</li></a>
           <a href="#"><li>About master</li></a>
           <a href="#"><li>Master class</li></a>
-          <a href="#"><li>Blog</li></a>
-          <a href="#"><li>Reviews</li></a>
+          <a href="#"><li>Media</li></a>
         </div>
       </ul>
       <div class="messenger">
@@ -76,8 +79,7 @@
       <video autoplay muted loop class="bg-video1" webkit-playsinline playsinline>
         <source class="video" src="/video/1_caves.mp4" type="video/mp4">
       </video>
-      <img id="rus" src="/icon/logo.png" alt="logo" width="170px">
-      <img id="eng" class="engLogo" src="/icon/logoEng.png" alt="logo" width="170px">
+      
       
       <div class="header-text" id="rus">
         <h1>ОКТЫ</h1>
@@ -132,12 +134,12 @@
             It seems that things made by man take on a piece of his soul; they feel a yearning for their creator</p>
         </div>
         <div class="block-two__button" id="rus">
-          <button>Хочу такого</button>
-          <button>Истории октов</button>
+          <button>ХОЧУ ТАКОГО</button>
+          <button>ИСТОРИИ ОКТОВ</button>
         </div>
         <div class="block-two__button" id="eng">
-          <button>I want this one</button>
-          <button>Stories about Octs</button>
+          <button>I WANT THIS ONT</button>
+          <button>STORIES ABOUT OCTS</button>
         </div>
       </div>
 
@@ -158,12 +160,16 @@
             the searching and waiting for their human they found the meaning</p>
         </div>
         <div class="block-two__button rusBtn" id="rus">
-          <button>узнать об авторе</button>
-          <button>хочу мастер-класс</button>
+          <button class="desktop">УЗНАТЬ ОБ АВТОРЕ</button>
+          <button class="desktop">ХОЧУ МАСТЕР-КЛАСС</button>
+          <button class="mobile">ОБ АВТОРЕ</button>
+          <button class="mobile">МАСТЕР-КЛАСС</button>
         </div>
         <div class="block-two__button engBtn" id="eng">
-          <button>Learn about the master</button>
-          <button>I want a master class</button>
+          <button class="desktop">LEARN ABOUT THE MASTER</button>
+          <button class="desktop">I WANT A MASTER CLASS</button>
+          <button class="mobile">THE MASTER</button>
+          <button class="mobile">MASTER CLASS</button>
         </div>
       </div>
 
@@ -171,7 +177,7 @@
       <footer>
         <div class="footer-link" id="rus">
             <div class="footer-logo">
-                <img src="/icon/logo.png" alt="logo">
+              <a href="/index.html"><img src="/icon/logo.png" alt="logo"></a>
                 <p class="policy"><a href="#" target="_blank">Политика конфиденциальности</a></p>
             </div>
             <div class="footer-block">
@@ -196,7 +202,7 @@
 
         <div class="footer-link eng" id="eng">
           <div class="footer-logo">
-            <img src="/icon/logoEng.png" alt="logo" width="300px">
+            <a href="/index.html"><img src="/icon/logoEng.png" alt="logo" width="300px"></a>
             <p class="policy"><a href="#" target="_blank">Privacy Policy</a></p>
         </div>
         <div class="footer-block">

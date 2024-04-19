@@ -6,11 +6,9 @@
 * {
   margin: 0%;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Mulish", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
   font-style: normal;
-  font-variation-settings: "slnt" 0;
 }
 
 ::-webkit-scrollbar {
@@ -193,13 +191,14 @@ body {
   will-change: opacity, transform;
 }
 
-.header {
-  display: block;
-}
-.header img {
+.logo-fix img {
   margin: 20px;
   position: fixed;
   top: 0;
+}
+
+.header {
+  display: block;
 }
 .header.removeBlock {
   display: none;
@@ -538,16 +537,16 @@ main .block-two.active .block-two__text {
   position: fixed;
   top: 100px;
   left: 150px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   background-color: rgba(52, 49, 47, 0.7);
   border: 0.5px solid #505050;
   line-height: 20px;
 }
 main .block-two.active .block-two__text p {
+  font-size: 17px;
   color: white;
   width: 420px;
-  font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 main .block-three {
@@ -570,10 +569,9 @@ main .block-three.active {
 }
 main .block-three.active .block-two__text {
   position: fixed;
-  top: 100px;
-  left: 150px;
-  padding: 30px;
-  padding-bottom: 10px;
+  top: 120px;
+  left: 200px;
+  padding: 20px;
   border-radius: 20px;
   background-color: rgba(52, 49, 47, 0.7);
   border: 0.5px solid #505050;
@@ -582,21 +580,20 @@ main .block-three.active .block-two__text {
 main .block-three.active .block-two__text p {
   color: white;
   opacity: 1;
-  width: 420px;
-  font-family: "Inter", sans-serif;
+  width: 435px;
+  font-size: 17px;
   font-weight: 400;
 }
 main .block-three.active .block-two__button {
   position: fixed;
-  top: 290px;
-  left: 150px;
-  font-family: "Space Ranger", sans-serif;
+  top: 310px;
+  left: 200px;
   line-height: 20px;
 }
 main .block-three.active .block-two__button button {
-  font-family: "Space Ranger", sans-serif;
-  width: 240px;
-  padding: 15px;
+  font-weight: 900;
+  width: 237px;
+  padding: 10px;
   background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
   border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
   border-radius: 15px;
@@ -635,7 +632,7 @@ main .block-four.active .block-two__text {
   position: fixed;
   top: 100px;
   left: 150px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   background-color: rgba(52, 49, 47, 0.7);
   border: 0.5px solid #505050;
@@ -644,23 +641,22 @@ main .block-four.active .block-two__text {
 main .block-four.active .block-two__text p {
   color: white;
   width: 300px;
-  font-family: "Inter", sans-serif;
+  font-size: 17px;
   font-weight: 400;
 }
 main .block-four.active .block-two__button {
   position: fixed;
   top: 250px;
   left: 150px;
-  font-family: "Space Ranger", sans-serif;
   line-height: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 main .block-four.active .block-two__button button {
-  font-family: "Space Ranger", sans-serif;
+  font-weight: 900;
   width: 270px;
-  padding: 15px;
+  padding: 10px;
   background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
   border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
   border-radius: 15px;
@@ -670,6 +666,9 @@ main .block-four.active .block-two__button button {
 }
 main .block-four.active .block-two__button button:hover {
   box-shadow: inset 1px 1px 5px black;
+}
+main .block-four.active .block-two__button .mobile {
+  display: none;
 }
 
 @-webkit-keyframes showFooter {
@@ -758,7 +757,7 @@ footer.footerActive .footer-contacts {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 5px;
 }
 footer.footerActive .footer-contacts a {
   display: flex;
@@ -783,7 +782,7 @@ footer.footerActive .footer-link {
 footer.footerActive .footer-menu p {
   position: -webkit-sticky;
   position: sticky;
-  margin-top: 10px;
+  margin-top: 8px;
   z-index: 300;
 }
 footer.footerActive .footer-menu p a {
