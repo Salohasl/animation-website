@@ -103,6 +103,7 @@
         justify-content: center;
         margin-top:150px;
         top: auto;
+        position: absolute;
     }
     main .block-two.active .block-two__text p, main .block-three.active .block-two__text p, main .block-four.active .block-two__text p{
         width: 100%;
@@ -110,6 +111,7 @@
     main .block-four.active .block-two__text{
         right: 0px;
         margin-top:50px;
+        position: absolute;
     }
    
     main .block-three.active{
@@ -181,6 +183,9 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 0px !important;
+    }
+    .fix{
+        margin-bottom: 150px;
     }
   }
   @media only screen and (max-width:400px){
