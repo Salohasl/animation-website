@@ -187,10 +187,6 @@ body {
   transition: 1s;
 }
 
-.block-two, .block-three, .block-four, footer {
-  will-change: opacity, transform;
-}
-
 .logo-fix img {
   margin: 20px;
   position: fixed;
@@ -584,7 +580,7 @@ main .block-four.active .bg-video3 {
 }
 main .block-four.active .block-two__text {
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 150px;
   padding: 20px;
   border-radius: 20px;
@@ -594,29 +590,27 @@ main .block-four.active .block-two__text {
 }
 main .block-four.active .block-two__text p {
   color: white;
-  width: 300px;
+  opacity: 1;
+  width: 435px;
   font-size: 17px;
   font-weight: 400;
 }
 main .block-four.active .block-two__button {
   position: fixed;
-  top: 250px;
+  top: 230px;
   left: 150px;
   line-height: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 main .block-four.active .block-two__button button {
   font-weight: 900;
-  width: 270px;
+  width: 237px;
   padding: 10px;
   background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
   border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
   border-radius: 15px;
   font-size: 18px;
-  cursor: pointer;
   color: black;
+  cursor: pointer;
 }
 main .block-four.active .block-two__button button:hover {
   box-shadow: inset 1px 1px 5px black;
