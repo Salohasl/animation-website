@@ -129,7 +129,7 @@
 
     footer.footerActive .policy{
         position: fixed ; 
-        bottom: 120px;
+        bottom: 70px;
         top: auto; 
         left: 0;
         margin-left: 0;
@@ -137,8 +137,10 @@
         width: 100%;
     }
     footer.footerActive .bott{
-        bottom: 0px;
+        bottom: 20px;
         z-index: 100 !important;
+        text-align: center;
+        position: fixed ; 
     }
 
     footer.footerActive .footer-block{
