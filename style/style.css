@@ -457,9 +457,6 @@ nav {
     transform: translate3d(0%, -10px, 0px);
   }
 }
-main {
-  height: 100vh;
-}
 main .block-two {
   display: none;
   transition: 0.8s;
@@ -475,7 +472,7 @@ main .block-two.active .bg-video2 {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   /* Определяем, что все другие элементы на странице будут поверх видео */
   z-index: -90;
   transform: scale(1.13);
@@ -545,8 +542,8 @@ main .block-three.active .block-two__button button {
   font-weight: 900;
   width: 237px;
   padding: 10px;
-  background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
-  border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
+  background: rgb(229, 228, 223);
+  border: 2px solid rgb(52, 49, 47);
   border-radius: 15px;
   font-size: 18px;
   color: black;
@@ -605,8 +602,8 @@ main .block-four.active .block-two__button button {
   font-weight: 900;
   width: 237px;
   padding: 10px;
-  background: linear-gradient(180deg, #FFFCFC 2.67%, #5A5856 61.97%, #201E1D 91.67%);
-  border: 2px solid linear-gradient(180deg, #292929 0%, #A0A0A0 50.6%, #C2C2C2 100%);
+  background: rgb(229, 228, 223);
+  border: 2px solid rgb(52, 49, 47);
   border-radius: 15px;
   font-size: 18px;
   color: black;
@@ -730,7 +727,7 @@ footer.footerActive .footer-link {
 footer.footerActive .footer-menu p {
   position: -webkit-sticky;
   position: sticky;
-  margin-top: 8px;
+  margin-top: 6px;
   z-index: 300;
 }
 footer.footerActive .footer-menu p a {
@@ -738,6 +735,12 @@ footer.footerActive .footer-menu p a {
 }
 footer.footerActive .footer-menu p a:hover {
   color: #505050;
+}
+footer.footerActive .footer-menu p:nth-of-type(2) {
+  margin-top: 1px;
+}
+footer.footerActive .footer-menu p:nth-of-type(3) {
+  margin-top: 1px;
 }
 footer.footerActive a {
   text-decoration: none;
