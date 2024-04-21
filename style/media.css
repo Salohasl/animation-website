@@ -129,7 +129,7 @@
 
     footer.footerActive .policy{
         position: fixed ; 
-        bottom: 100px;
+        bottom: 120px;
         top: auto; 
         left: 0;
         margin-left: 0;
@@ -137,7 +137,7 @@
         width: 100%;
     }
     footer.footerActive .bott{
-        bottom: 60px;
+        bottom: 80px;
     }
 
     footer.footerActive .footer-block{
@@ -204,6 +204,9 @@
     }
   }
   @media only screen and (max-width:320px){
-   
+    footer.footerActive .policy{
+        position: fixed ; 
+        bottom: 140px;
+    }
   }
   
