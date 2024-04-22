@@ -117,6 +117,9 @@
     main .block-three.active{
         transform: scale(1);
     }
+    main .block-three.active .block-two__button a{
+        width: 100%;
+    }
     main .block-three.active .block-two__button button{
         width: 100%;
         font-size: 15px;
@@ -170,27 +173,29 @@
     .scroll{
         bottom: 0px;
     }
-    .desktop{
-        display: none;
+
+    main .block-four.active .block-two__button a{
+        width: 100%;
+        text-decoration: none;
     }
-    main .block-four.active .block-two__button .mobile{
-        display: block ;
+    main .block-four.active .block-two__button a button{
         width: 100%;
         font-size: 15px;
         margin-top: 10px;
         top: 300px;
+        
     }
     main .block-four.active .block-two__button{
         gap: 5px;
         left: 0%;
         right: 0px;
-        margin-top: 40%;
+        margin-top: 50%;
         height: 54vh;
-        
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        width: 100%;
     }
 
 
