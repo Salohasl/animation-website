@@ -574,24 +574,24 @@ main{
                 left: 150px;
                 line-height: 20px;
                 button{
-                    font-weight: 900;
+
                     width: 237px;
                     padding: 10px;
                     background: rgba(229, 228, 223, 1);
                     border: 2px solid rgba(52, 49, 47, 1);
                     border-radius: 15px;
-                    font-size: 18px;
-                    color: black;
                     cursor: pointer;
                     &:hover{
                         box-shadow: inset 1px 1px 5px black;
                     }
-                }
-                a{
-                    .mobile{
-                        display: none;
+                    a{
+                        text-decoration: none;
+                        font-size: 18px;
+                        color: black;
+                        font-weight: 900;
                     }
                 }
+                
  
             }
         }

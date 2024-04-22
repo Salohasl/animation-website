@@ -174,23 +174,23 @@
         bottom: 0px;
     }
 
-    main .block-four.active .block-two__button a{
+    main .block-four.active .block-two__button button a{
         width: 100%;
-        text-decoration: none;
+        font-size: 15px;
     }
-    main .block-four.active .block-two__button a button{
+    main .block-four.active .block-two__button button{
         width: 100%;
         font-size: 15px;
         margin-top: 10px;
-        top: 300px;
-        
+        top: auto;
+        margin-bottom: 100px;
     }
     main .block-four.active .block-two__button{
         gap: 5px;
         left: 0%;
         right: 0px;
-        margin-top: 50%;
-        height: 54vh;
+        
+        height: 100vh;
         display: flex;
         flex-direction: row;
         align-items: center;

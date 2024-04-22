@@ -600,21 +600,21 @@ main .block-four.active .block-two__button {
   line-height: 20px;
 }
 main .block-four.active .block-two__button button {
-  font-weight: 900;
   width: 237px;
   padding: 10px;
   background: rgb(229, 228, 223);
   border: 2px solid rgb(52, 49, 47);
   border-radius: 15px;
-  font-size: 18px;
-  color: black;
   cursor: pointer;
 }
 main .block-four.active .block-two__button button:hover {
   box-shadow: inset 1px 1px 5px black;
 }
-main .block-four.active .block-two__button a .mobile {
-  display: none;
+main .block-four.active .block-two__button button a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  font-weight: 900;
 }
 
 @-webkit-keyframes showFooter {
